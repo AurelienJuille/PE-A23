@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdb1t75olq4ik"]
+
+[ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_6vgt1"]
+[ext_resource type="Texture2D" uid="uid://rkjkf4s8bs2o" path="res://icon.svg" id="1_ud1kr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrovb"]
+albedo_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dl2qq"]
+material = SubResource("StandardMaterial3D_mrovb")
+size = Vector2(500, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h453a"]
+data = PackedVector3Array(250, 0, 1, -250, 0, 1, 250, 0, -1, -250, 0, 1, -250, 0, -1, 250, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6nkaw"]
+albedo_color = Color(1, 100, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7jkxn"]
+material = SubResource("StandardMaterial3D_6nkaw")
+size = Vector2(500, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fo7ul"]
+data = PackedVector3Array(250, -2, 0, -250, -2, 0, 250, 2, 0, -250, -2, 0, -250, 2, 0, 250, 2, 0)
+
+[sub_resource type="Environment" id="Environment_wjck8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1j5j4"]
+height = 1.29955
+
+[node name="TEST ROOM" type="Node3D"]
+
+[node name="FLOOR" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_dl2qq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FLOOR"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FLOOR/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_h453a")
+
+[node name="WALL" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+mesh = SubResource("QuadMesh_7jkxn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WALL"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fo7ul")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wjck8")
+
+[node name="PLAYER" type="CharacterBody3D" parent="."]
+script = ExtResource("1_6vgt1")
+
+[node name="Sprite3D" type="Sprite3D" parent="PLAYER"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
+texture = ExtResource("1_ud1kr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PLAYER"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.673612, 0)
+shape = SubResource("CapsuleShape3D_1j5j4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.949157, 0.314804, 0, -0.314804, 0.949157, 0, 3.72454, 7.36771)
