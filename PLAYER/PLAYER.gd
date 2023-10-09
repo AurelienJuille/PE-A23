@@ -14,7 +14,7 @@ func set_variables() -> void:
 
 
 # RUN VARIABLES
-@export var max_speed := 10
+@export var max_speed := 1.5
 @export var time_to_full_speed := .2
 @export var time_to_stop := .1
 
@@ -36,7 +36,12 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction.x != 0:
+		$Sprite3D.scale.x = sign(direction.x)
 	velocity.x = move_toward(velocity.x, direction.x * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.x) > abs(velocity.x) else time_to_stop))
 #	velocity.z = move_toward(velocity.z, direction.z * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.z) > abs(velocity.z) else time_to_stop))
-
+	if velocity.x == 0:
+		$Sprite3D.play("idle")
+	else:
+		$Sprite3D.play("run")
 	move_and_slide()

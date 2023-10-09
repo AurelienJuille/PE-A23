@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://e0wl2vh7cmy5"]
+
+[ext_resource type="Texture2D" uid="uid://rkjkf4s8bs2o" path="res://icon.svg" id="1_sw2tn"]
+[ext_resource type="Shader" path="res://graphic_test_room.gdshader" id="3_ifgeq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eiir6"]
+albedo_color = Color(0.301961, 0.243137, 0.172549, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lbcve"]
+material = SubResource("StandardMaterial3D_eiir6")
+size = Vector2(100, 100)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_60ypo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_82t3y"]
+seamless = true
+noise = SubResource("FastNoiseLite_60ypo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pivdf"]
+shader = ExtResource("3_ifgeq")
+shader_parameter/noise_scale = 0.04
+shader_parameter/flatness = 3.27
+shader_parameter/density = 0.99
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_82t3y")
+
+[sub_resource type="Environment" id="Environment_ho6xa"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66wwd"]
+albedo_texture = ExtResource("1_sw2tn")
+emission_enabled = true
+emission_energy_multiplier = 7.78
+emission_texture = ExtResource("1_sw2tn")
+
+[sub_resource type="SphereMesh" id="SphereMesh_qekal"]
+material = SubResource("StandardMaterial3D_66wwd")
+radius = 7.28
+height = 12.864
+
+[node name="graphic_test_room" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_lbcve")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29507, 12.3302, -3.29095)
+size = Vector3(63.7176, 2.30918, 39.6032)
+material = SubResource("ShaderMaterial_pivdf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ho6xa")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 29, 0)
+light_energy = 8.589
+light_volumetric_fog_energy = 16.0
+spot_range = 95.231
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4918, 8.8548, 28.9076)
+mesh = SubResource("SphereMesh_qekal")
