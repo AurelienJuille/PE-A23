@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdb1t75olq4ik"]
+[gd_scene load_steps=14 format=3 uid="uid://cdb1t75olq4ik"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_6vgt1"]
 [ext_resource type="Texture2D" uid="uid://rkjkf4s8bs2o" path="res://icon.svg" id="1_ud1kr"]
+[ext_resource type="Script" path="res://Camera3Dtest.gd" id="3_jbpgo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrovb"]
 albedo_color = Color(0.133333, 0.133333, 0.133333, 1)
@@ -18,20 +19,22 @@ albedo_color = Color(1, 1.77, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_7jkxn"]
 material = SubResource("StandardMaterial3D_8xdtw")
-size = Vector2(500, 4)
+size = Vector2(500, 50)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fo7ul"]
 data = PackedVector3Array(250, -2, 0, -250, -2, 0, 250, 2, 0, -250, -2, 0, -250, 2, 0, 250, 2, 0)
 
 [sub_resource type="Environment" id="Environment_wjck8"]
+fog_light_energy = 1.74
+fog_density = 0.047
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttvtw"]
+size = Vector3(1.28, 1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ago23"]
-size = Vector3(2, 2, 2)
+[sub_resource type="PrismMesh" id="PrismMesh_7di48"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wmnvm"]
-data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7ybe0"]
+data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="TEST ROOM" type="Node3D"]
 
@@ -44,7 +47,7 @@ mesh = SubResource("PlaneMesh_dl2qq")
 shape = SubResource("ConcavePolygonShape3D_4v6q3")
 
 [node name="WALL" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, -1)
 mesh = SubResource("QuadMesh_7jkxn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WALL"]
@@ -67,16 +70,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ttvtw")
 
 [node name="Camera3D" type="Camera3D" parent="PLAYER"]
-transform = Transform3D(0.967418, 0.0797033, -0.240311, 0, 0.949157, 0.314804, 0.253184, -0.304547, 0.918231, -1.12274, 3.72454, 7.36771)
+transform = Transform3D(0.967418, 0.0797033, -0.240311, 0, 0.949157, 0.314804, 0.253184, -0.304547, 0.918231, -0.954716, 3.72454, 7.36771)
 size = 0.1
+script = ExtResource("3_jbpgo")
 
 [node name="OBSTACLES" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OBSTACLES"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4707, 0.991639, 0)
-mesh = SubResource("BoxMesh_ago23")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4707, 0.506283, 0)
+mesh = SubResource("PrismMesh_7di48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OBSTACLES/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OBSTACLES/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_wmnvm")
+shape = SubResource("ConcavePolygonShape3D_7ybe0")
