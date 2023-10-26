@@ -135,7 +135,7 @@ mesh = SubResource("PlaneMesh_dl2qq")
 shape = SubResource("ConcavePolygonShape3D_4v6q3")
 
 [node name="WALL" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.99028, -1)
 mesh = SubResource("QuadMesh_7jkxn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WALL"]
@@ -188,5 +188,21 @@ spot_angle = 33.0454
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.967418, 0.0797033, -0.240311, 0, 0.949157, 0.314804, 0.253184, -0.304547, 0.918231, -0.270071, 0.391879, 0.683361)
+fov = 64.8
 size = 0.1
+near = 0.009
 script = ExtResource("3_jbpgo")
+yPosition = 0.745
+yRotation = 1.0
+height = -0.69
+distanceFromPlayer = 1.8
+
+[node name="Timeline Contol" type="Node2D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.464452, 0.844931)
+light_color = Color(1, 0.454902, 0.141176, 1)
+light_energy = 0.43
+light_indirect_energy = 0.838
+omni_range = 4.619
+omni_attenuation = 3.86374
