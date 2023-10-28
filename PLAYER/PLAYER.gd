@@ -28,7 +28,8 @@ func _ready():
 
 func _physics_process(delta):
 	#print(is_on_floor(),position.y)
-	# Add the gravity.
+	
+	
 	
 	if not is_on_floor():
 		velocity.y -= grav * delta
@@ -63,3 +64,14 @@ func _physics_process(delta):
 	else:
 		$Sprite3D.play("run")
 	move_and_slide()
+
+func die():
+	self.visible = false;
+	get_node("/root/TEST ROOM/MusicControl").stop()
+
+
+func _on_area_3d_area_entered(area):
+	print("entered")
+	if area.get_parent().is_in_group("Player"):
+		die()
+	pass # Replace with function body.

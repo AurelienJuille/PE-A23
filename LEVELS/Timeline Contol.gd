@@ -6,14 +6,14 @@ var secondsPerBeat := 60/bpm
 ##je comprends pas tout mais c'etiat super utile
 ## TO-DO : faire les demi-beats  / quad
 var songPosition = 0.0
-var songPositionInBeats = 1
-var songPositionInSubBeats = 1
+var songPositionInBeats = 0
+var songPositionInSubBeats = 0
 var lastReportedBeat = 0
 var beatsBeforeStart = 0
-var measure = 1
-var subMeasure = 1
+var measure = 0
+var subMeasure = 0
 var subMeasureDivision = 4
-var currentSubBeat = 1
+var currentSubBeat = 0
 #determining how close to the beat an event is
 var closest = 0
 var timeOffBeat = 0.0

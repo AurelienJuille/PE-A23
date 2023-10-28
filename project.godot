@@ -77,6 +77,11 @@ JUMP={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Environment"
+3d_physics/layer_2="Enemy"
+
 [rendering]
 
 environment/volumetric_fog/volume_size=256
