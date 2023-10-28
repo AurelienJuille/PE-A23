@@ -1,9 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdb1t75olq4ik"]
+[gd_scene load_steps=29 format=3 uid="uid://cdb1t75olq4ik"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_6vgt1"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://une caisse.png" id="3_0lwhs"]
 [ext_resource type="Script" path="res://Camera3Dtest.gd" id="3_jbpgo"]
 [ext_resource type="Texture2D" uid="uid://dvasyk52lkp3v" path="res://PLAYER/Character-Sheet.png" id="4_ad0kr"]
+[ext_resource type="Script" path="res://LEVELS/Timeline Contol.gd" id="5_3w0mo"]
+[ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://LEVELS/Test Music.mp3" id="5_g15fy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrovb"]
 albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
@@ -197,7 +199,12 @@ yRotation = 1.0
 height = -0.69
 distanceFromPlayer = 1.8
 
-[node name="Timeline Contol" type="Node2D" parent="."]
+[node name="Music Control" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_g15fy")
+volume_db = -21.41
+script = ExtResource("5_3w0mo")
+
+[node name="StartTimer" type="Timer" parent="Music Control"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.464452, 0.844931)
