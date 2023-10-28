@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cdb1t75olq4ik"]
+[gd_scene load_steps=29 format=3 uid="uid://cdb1t75olq4ik"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_6vgt1"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://une caisse.png" id="3_0lwhs"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dvasyk52lkp3v" path="res://PLAYER/Character-Sheet.png" id="4_ad0kr"]
 [ext_resource type="Script" path="res://LEVELS/Timeline Contol.gd" id="5_3w0mo"]
 [ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://LEVELS/Test Music.mp3" id="5_g15fy"]
-[ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://LEVELS/VEDH Percussion 026.wav" id="7_28s6f"]
-[ext_resource type="Script" path="res://LEVELS/tick.gd" id="8_c8v2m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrovb"]
 albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
@@ -149,7 +147,7 @@ shape = SubResource("ConcavePolygonShape3D_fo7ul")
 
 [node name="PLAYER" type="CharacterBody3D" parent="."]
 script = ExtResource("1_6vgt1")
-jump_height = 0.1
+jump_height = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PLAYER"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141982, 0)
@@ -201,12 +199,12 @@ yRotation = 1.0
 height = -0.69
 distanceFromPlayer = 1.8
 
-[node name="MusicControl" type="AudioStreamPlayer" parent="."]
+[node name="Music Control" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_g15fy")
 volume_db = -21.41
 script = ExtResource("5_3w0mo")
 
-[node name="StartTimer" type="Timer" parent="MusicControl"]
+[node name="StartTimer" type="Timer" parent="Music Control"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.464452, 0.844931)
@@ -215,10 +213,3 @@ light_energy = 0.43
 light_indirect_energy = 0.838
 omni_range = 4.619
 omni_attenuation = 3.86374
-
-[node name="Test sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_28s6f")
-volume_db = -25.457
-script = ExtResource("8_c8v2m")
-
-[connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]

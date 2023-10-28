@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://boo2r8tx3v02h"
+path="res://.godot/imported/VEDH Percussion 026.wav-ef15f9155e073bc208410f76058d70c1.sample"
+
+[deps]
+
+source_file="res://LEVELS/VEDH Percussion 026.wav"
+dest_files=["res://.godot/imported/VEDH Percussion 026.wav-ef15f9155e073bc208410f76058d70c1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

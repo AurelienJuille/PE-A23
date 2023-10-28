@@ -7,13 +7,19 @@ var secondsPerBeat := 60/bpm
 ## TO-DO : faire les demi-beats  / quad
 var songPosition = 0.0
 var songPositionInBeats = 1
+var songPositionInSubBeats = 1
 var lastReportedBeat = 0
 var beatsBeforeStart = 0
 var measure = 1
-
+var subMeasure = 1
+var subMeasureDivision = 4
+var currentSubBeat = 1
 #determining how close to the beat an event is
 var closest = 0
 var timeOffBeat = 0.0
+var lastReportedSubBeat = 0
+
+signal currentSubBeatSignal
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +32,10 @@ func _physics_process(delta):
 		songPosition = get_playback_position() + AudioServer.get_time_since_last_mix()
 		songPosition -= AudioServer.get_output_latency()
 		songPositionInBeats = int(floor(songPosition / secondsPerBeat)) + beatsBeforeStart
+		songPositionInSubBeats = int(floor(songPosition / (secondsPerBeat / subMeasureDivision))) + (beatsBeforeStart * subMeasureDivision)
+		
+		#currentSubBeat = (songPositionInSubBeats % subMeasureDivision) + 1
+		
 		_report_beat()
 		
 func _report_beat():
@@ -33,10 +43,19 @@ func _report_beat():
 	if lastReportedBeat < songPositionInBeats:
 		if measure > measures:
 			measures = 1
-		emit_signal ("beat", songPositionInBeats)
-		emit_signal ("measure", songPositionInBeats)
+		
+		#print(currentSubBeat)
 		lastReportedBeat = songPositionInBeats
 		measure += 1
+		#print(measure)
+	
+	if lastReportedSubBeat < songPositionInSubBeats:
+#		print("pos",songPositionInSubBeats)
+#		print("last",lastReportedSubBeat)
+#		print("current",currentSubBeat)
+		lastReportedSubBeat += 1
+		currentSubBeatSignal.emit()
+		
 		
 func playWithBeatOffset(beatOffset) :
 		beatsBeforeStart = beatOffset
@@ -53,6 +72,7 @@ func playOnBeat(beat, offset):
 	seek(beat * secondsPerBeat)
 	beatsBeforeStart = offset
 	measure = beat % measures
+	
 
 func onStartTimerTimeout() : 
 	songPositionInBeats += 1
