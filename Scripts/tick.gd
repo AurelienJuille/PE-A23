@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 #	$MusicControl.currentSubBeatSignal.connect(playSound())
 	pass
 	
@@ -20,6 +20,6 @@ func _process(delta):
 
 func _on_music_control_current_sub_beat_signal():
 	#print(musicControlNode.lastReportedSubBeat)
-	if (musicControlNode.lastReportedSubBeat % 4 + 1) == 3:
+	if (musicControlNode.lastReportedSubBeat % 4 + 1) == 1:
 		play()
 	pass # Replace with function body.

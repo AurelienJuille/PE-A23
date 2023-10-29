@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="LE JEU"
-run/main_scene="res://LEVELS/test_room.tscn"
+run/main_scene="res://Scenes/test_room.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Textures/icon.svg"
 
 [importer_defaults]
 

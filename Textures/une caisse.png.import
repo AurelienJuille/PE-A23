@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d380sp35a2t1r"
-path="res://.godot/imported/une caisse.png-5812db5b3b8ad2f967a0207993cfde30.ctex"
+path="res://.godot/imported/une caisse.png-61baeb01b8e541c8f0ec5a7cd7733436.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://une caisse.png"
-dest_files=["res://.godot/imported/une caisse.png-5812db5b3b8ad2f967a0207993cfde30.ctex"]
+source_file="res://Textures/une caisse.png"
+dest_files=["res://.godot/imported/une caisse.png-61baeb01b8e541c8f0ec5a7cd7733436.ctex"]
 
 [params]
 

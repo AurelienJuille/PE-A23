@@ -27,7 +27,7 @@ func _ready():
 	pass # Replace with function body
 	play()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if playing:
 		songPosition = get_playback_position() + AudioServer.get_time_since_last_mix()
 		songPosition -= AudioServer.get_output_latency()
@@ -88,5 +88,5 @@ func onStartTimerTimeout() :
 	_report_beat() 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
