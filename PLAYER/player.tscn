@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://bmsfvkhij0unq"]
+
+[ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_0jlmp"]
+[ext_resource type="Texture2D" uid="uid://dvasyk52lkp3v" path="res://PLAYER/Character-Sheet.png" id="2_o4k87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3541"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kipjo"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8usy1"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyofb"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shaar"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh5w1"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsrdx"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flh73"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vno7f"]
+atlas = ExtResource("2_o4k87")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mobs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3541")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kipjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8usy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyofb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shaar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh5w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsrdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flh73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vno7f")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ttvtw"]
+size = Vector3(0.151078, 0.281942, 0.223247)
+
+[node name="PLAYER" type="CharacterBody3D" groups=["Player"]]
+script = ExtResource("1_0jlmp")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0)
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_6mobs")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141982, 0)
+shape = SubResource("BoxShape3D_ttvtw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.138783, 0)
+shape = SubResource("BoxShape3D_ttvtw")
+
+[node name="HollowKnightJumpTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

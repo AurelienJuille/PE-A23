@@ -1,9 +1,10 @@
 extends CharacterBody3D
 
 # JUMP VARIABLES
-@export var jump_height := 2.5
-@export var half_jump_up_duration := .3
-var max_fall_speed := 500.0
+@export var jump_height := .4
+@export var half_jump_up_duration := .5
+@export var min_jump_up_duration := .1
+var max_fall_speed := 3.0
 var grav : float
 var jump_strength : float
 
@@ -14,12 +15,11 @@ func set_variables() -> void:
 
   
 # RUN VARIABLES
-@export var max_speed := 1.5
+@export var max_speed := 1.0
 @export var time_to_full_speed := .2
 @export var time_to_stop := .1
-var isJumping : bool
-var jumpStrength: float = 4 * 0.1
-var currentFrameUpForce: float
+var is_jumping : bool
+#var currentFrameUpForce: float
 var gravity: float = 2
 var releaseDownForce = 0.7
 
@@ -27,33 +27,43 @@ func _ready():
 	set_variables()
 
 func _physics_process(delta):
-	#print(is_on_floor(),position.y)
-	
-	
-	
+#	if $HollowKnightJumpTimer.time_left!=0:
+#		print("Timer : " + str($HollowKnightJumpTimer.time_left) + " | Pos.y : " + str(position.y))
 	if not is_on_floor():
 		velocity.y -= grav * delta
 	if is_on_floor():
-		currentFrameUpForce = jumpStrength
-	# Handle Jump.
-	if Input.is_action_just_pressed("JUMP") and is_on_floor():
-		isJumping = true
-		velocity.y += currentFrameUpForce
-		
-	if Input.is_action_just_released("JUMP"):
-		#velocity.y -= lerp(0.0,1.5,(jumpStrength - currentFrameUpForce)/jumpStrength)
-		velocity.y -= releaseDownForce
-		#print(lerp(,1.5,(jumpStrength - currentFrameUpForce)/jumpStrength))
-		isJumping = false
-		currentFrameUpForce = jumpStrength
-		
-	if Input.is_action_pressed("JUMP") and isJumping and not is_on_floor():
-		velocity.y += max(currentFrameUpForce,0)
-		currentFrameUpForce = currentFrameUpForce/gravity
+		velocity.y = .0
+#		currentFrameUpForce = jumpStrength
+	
+	handle_jump()
+	handle_run(delta)
+	
+	move_and_slide()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
+func handle_jump():
+	if Input.is_action_just_pressed("JUMP") and is_on_floor():
+		is_jumping = true
+		velocity.y = jump_strength
+#		velocity.y += currentFrameUpForce
+		$HollowKnightJumpTimer.start(min_jump_up_duration)
+	
+	# Hollow Knight Jump
+	elif not Input.is_action_pressed("JUMP") and is_jumping and $HollowKnightJumpTimer.time_left == .0 and velocity.y > 0:
+		velocity.y *= .3
+		is_jumping = false
+#		currentFrameUpForce = jump_strength
+	
+	# Dash downward
+	if Input.is_action_just_pressed("JUMP") and not is_on_floor():
+		velocity.y = -max_fall_speed
+#		velocity.y += max(currentFrameUpForce, 0)
+#		currentFrameUpForce = currentFrameUpForce/gravity
+
+
+func handle_run(delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+#	input_dir = Vector3(1,0,0)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.x != 0:
 		$Sprite3D.scale.x = sign(direction.x)
@@ -63,15 +73,17 @@ func _physics_process(delta):
 		$Sprite3D.play("idle")
 	else:
 		$Sprite3D.play("run")
-	move_and_slide()
-
+		
+	
 func die():
-	self.visible = false;
+#	self.visible = false
+	print("You Lost")
+	get_tree().reload_current_scene()
 	get_node("/root/TEST ROOM/MusicControl").stop()
 
 
 func _on_area_3d_area_entered(area):
-	print("entered")
-	if area.get_parent().is_in_group("Player"):
+	if area.get_parent().is_in_group("Enemies"):
 		die()
-	pass # Replace with function body.
+
+

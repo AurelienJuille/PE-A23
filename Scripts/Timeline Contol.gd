@@ -24,7 +24,8 @@ signal currentSubBeatSignal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body
+	GLOBAL.MUSIC_CONTROL = self
+	get_tree().call_group("Enemies", "init")
 	play()
 	
 func _physics_process(_delta):
@@ -73,8 +74,13 @@ func playOnBeat(beat, offset):
 	beatsBeforeStart = offset
 	measure = beat % measures
 	
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
 
-func onStartTimerTimeout() : 
+
+func _on_start_timer_timeout():
 	songPositionInBeats += 1
 	if songPositionInBeats < beatsBeforeStart:
 		$StartTimer.start()
@@ -85,8 +91,4 @@ func onStartTimerTimeout() :
 		play()
 		$StartTimer.stop
 		
-	_report_beat() 	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+	_report_beat()

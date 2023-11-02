@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4t622dfd8mmh"]
+
+[ext_resource type="Script" path="res://Scripts/Move on Beat.gd" id="1_dla4w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4glsb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v1a21"]
+material = SubResource("StandardMaterial3D_4glsb")
+size = Vector3(1, 0.045, 0.615)
+
+[sub_resource type="Curve" id="Curve_dkdv1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.412371, 0.105263), 0.92381, 0.92381, 0, 0, Vector2(0.494845, 0.505263), 3.30627, 3.30627, 0, 0, Vector2(0.57732, 0.873684), 1.22526, 1.22526, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s8yt7"]
+data = PackedVector3Array(-0.5, 0.0225, 0.3075, 0.5, 0.0225, 0.3075, -0.5, -0.0225, 0.3075, 0.5, 0.0225, 0.3075, 0.5, -0.0225, 0.3075, -0.5, -0.0225, 0.3075, 0.5, 0.0225, -0.3075, -0.5, 0.0225, -0.3075, 0.5, -0.0225, -0.3075, -0.5, 0.0225, -0.3075, -0.5, -0.0225, -0.3075, 0.5, -0.0225, -0.3075, 0.5, 0.0225, 0.3075, 0.5, 0.0225, -0.3075, 0.5, -0.0225, 0.3075, 0.5, 0.0225, -0.3075, 0.5, -0.0225, -0.3075, 0.5, -0.0225, 0.3075, -0.5, 0.0225, -0.3075, -0.5, 0.0225, 0.3075, -0.5, -0.0225, -0.3075, -0.5, 0.0225, 0.3075, -0.5, -0.0225, 0.3075, -0.5, -0.0225, -0.3075, 0.5, 0.0225, 0.3075, -0.5, 0.0225, 0.3075, 0.5, 0.0225, -0.3075, -0.5, 0.0225, 0.3075, -0.5, 0.0225, -0.3075, 0.5, 0.0225, -0.3075, -0.5, -0.0225, 0.3075, 0.5, -0.0225, 0.3075, -0.5, -0.0225, -0.3075, 0.5, -0.0225, 0.3075, 0.5, -0.0225, -0.3075, -0.5, -0.0225, -0.3075)
+
+[node name="MoveOnce" type="MeshInstance3D" groups=["Enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22048, 0.0194295, 0)
+mesh = SubResource("BoxMesh_v1a21")
+script = ExtResource("1_dla4w")
+moveDuration = 2.0
+relativeEndPosition = Vector3(1, 1, 0)
+interpolation = SubResource("Curve_dkdv1")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00693679, 0.00415179, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00334278, 0)
+shape = SubResource("ConcavePolygonShape3D_s8yt7")

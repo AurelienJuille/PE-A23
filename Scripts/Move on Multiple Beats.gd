@@ -1,5 +1,5 @@
 extends MeshInstance3D
-@onready var musicControlNode: AudioStreamPlayer = get_tree().root.get_child(0).get_node("MusicControl")
+#@onready var musicControlNode: AudioStreamPlayer = get_tree().root.get_child(0).get_node("MusicControl")
 var subBeatSignal : Signal
 @export var positions : Array[Vector3]
 @export var moveFromBeatToBeat: Array[Vector2]
@@ -17,6 +17,9 @@ var isMoving : bool
 var timeElapsed : float
 var step : int
 
+func init():
+	GLOBAL.MUSIC_CONTROL.currentSubBeatSignal.connect(_on_music_control_current_sub_beat_signal)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in range(moveFromBeatToBeat.size()-1):
@@ -32,7 +35,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
-	print(step)
 	if (isMoving):
 		timeElapsed += delta
 		interpolationSlider = timeElapsed / moveDuration
@@ -44,7 +46,7 @@ func _process(delta):
 
 
 func _on_music_control_current_sub_beat_signal():
-	if(musicControlNode.lastReportedBeat == moveFromBeatToBeat[self.step][0]):
+	if(GLOBAL.MUSIC_CONTROL.lastReportedBeat == moveFromBeatToBeat[self.step][0]):
 		moveToPoint()
 	pass # Replace with function body.
 	
