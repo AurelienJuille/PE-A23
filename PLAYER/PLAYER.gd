@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 # JUMP VARIABLES
 @export var jump_height := .4
-@export var half_jump_up_duration := .5
+@export var half_jump_up_duration := .25
 @export var min_jump_up_duration := .1
 var max_fall_speed := 3.0
 var grav : float
@@ -15,7 +15,7 @@ func set_variables() -> void:
 
   
 # RUN VARIABLES
-@export var max_speed := 2
+@export var max_speed := 1.5
 @export var time_to_full_speed := .2
 @export var time_to_stop := .1
 var is_jumping : bool
@@ -39,8 +39,22 @@ func _physics_process(delta):
 	handle_run(delta)
 	
 	move_and_slide()
+	animation()
 
 
+func animation():
+	if is_on_floor():
+		if velocity.x == 0:
+			$Sprite3D.play("idle")
+		else:
+			$Sprite3D.play("run")
+	else:
+		if velocity.y > 0:
+			$Sprite3D.play("jump_up")
+		else:
+			$Sprite3D.play("jump_down")
+	
+	
 func handle_jump():
 	if Input.is_action_just_pressed("JUMP") and is_on_floor():
 		is_jumping = true
@@ -63,17 +77,14 @@ func handle_jump():
 
 func handle_run(delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-#	input_dir = Vector3(1,0,0)
+	input_dir = Vector3(1,0,0)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.x != 0:
 		$Sprite3D.scale.x = sign(direction.x)
-	velocity.x = move_toward(velocity.x, direction.x * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.x) > abs(velocity.x) else time_to_stop))
+		velocity.x = max_speed
+#	velocity.x = move_toward(velocity.x, direction.x * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.x) > abs(velocity.x) else time_to_stop))
 #	velocity.z = move_toward(velocity.z, direction.z * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.z) > abs(velocity.z) else time_to_stop))
-	if velocity.x == 0:
-		$Sprite3D.play("idle")
-	else:
-		$Sprite3D.play("run")
-		
+	
 	
 func die():
 #	self.visible = false
