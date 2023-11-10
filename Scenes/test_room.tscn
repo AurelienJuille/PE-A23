@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://cdb1t75olq4ik"]
+[gd_scene load_steps=23 format=3 uid="uid://cdb1t75olq4ik"]
 
 [ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="1_nm2re"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/une caisse.png" id="3_61ws3"]
-[ext_resource type="PackedScene" uid="uid://b4t622dfd8mmh" path="res://Obstacles/move_once.tscn" id="4_siila"]
-[ext_resource type="PackedScene" uid="uid://bu72onarr440o" path="res://Obstacles/move_multiple.tscn" id="5_av7er"]
+[ext_resource type="Script" path="res://Scenes/EnemyOBSTACLES.gd" id="4_1nbuv"]
+[ext_resource type="PackedScene" uid="uid://kgd5bx34pakk" path="res://Obstacles/moving_obstacle_root.tscn" id="4_cgvg6"]
 [ext_resource type="Script" path="res://Scripts/Camera3Dtest.gd" id="6_yvgla"]
 [ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Test Music.mp3" id="7_hxbbc"]
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="8_yl6rr"]
@@ -30,6 +30,12 @@ size = Vector2(500, 50)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fo7ul"]
 data = PackedVector3Array(250, -2, 0, -250, -2, 0, 250, 2, 0, -250, -2, 0, -250, 2, 0, 250, 2, 0)
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qh38p"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.08
+dof_blur_near_transition = 1093.4
+
 [sub_resource type="PrismMesh" id="PrismMesh_7di48"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7ybe0"]
@@ -50,6 +56,10 @@ texture_filter = 0
 [sub_resource type="BoxMesh" id="BoxMesh_12anu"]
 material = SubResource("StandardMaterial3D_q5xk8")
 size = Vector3(0.16, 0.16, 0.16)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xgh1f"]
+radius = 0.1
+height = 0.2
 
 [sub_resource type="Environment" id="Environment_wjck8"]
 ambient_light_source = 1
@@ -76,12 +86,12 @@ mesh = SubResource("QuadMesh_7jkxn")
 shape = SubResource("ConcavePolygonShape3D_fo7ul")
 
 [node name="PLAYER" parent="." instance=ExtResource("1_nm2re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57397, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150986, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="PLAYER"]
-transform = Transform3D(1, 0, 0, 0, 0.998629, 0.052336, 0, -0.052336, 0.998629, 0, 0.5, 1.283)
+transform = Transform3D(1, 0, 0, 0, 0.999997, 0.00237372, 0, -0.00237372, 0.999997, 0, 0.289719, 1.27279)
+attributes = SubResource("CameraAttributesPractical_qh38p")
 current = true
-size = 0.1
 script = ExtResource("6_yvgla")
 yPosition = 0.745
 yRotation = 1.0
@@ -104,11 +114,16 @@ transform = Transform3D(0.900683, 0, 0.434476, 0, 1, 0, -0.434476, 0, 0.900683, 
 mesh = SubResource("BoxMesh_12anu")
 
 [node name="EnemyOBSTACLES" type="Node3D" parent="." groups=["Enemies"]]
+script = ExtResource("4_1nbuv")
 
-[node name="MoveOnce" parent="EnemyOBSTACLES" instance=ExtResource("4_siila")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59404, 0, 0)
+[node name="Moving_obstacle_root" parent="EnemyOBSTACLES" instance=ExtResource("4_cgvg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+ending_sub_beat = 2
+looping = true
+end_pos = Vector3(0, 1, 0)
 
-[node name="MoveMultiple" parent="EnemyOBSTACLES" instance=ExtResource("5_av7er")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemyOBSTACLES/Moving_obstacle_root"]
+mesh = SubResource("SphereMesh_xgh1f")
 
 [node name="LIGHTS" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.464452, 0.844931)
@@ -158,7 +173,6 @@ script = ExtResource("8_yl6rr")
 
 [node name="Test sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_igbha")
-volume_db = -25.457
 script = ExtResource("10_2omwo")
 
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
