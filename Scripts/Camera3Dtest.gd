@@ -10,7 +10,7 @@ var cameraTransition = Vector3.ZERO
 
 func _physics_process(delta):
 #	var cameraPositionOffset = Vector3(0,height,distanceFromPlayer)
-#	var player_pos = get_parent().get_node("PLAYER").global_position
+#	var player_pos = get_parent().global_position
 #	cameraTransition = lerp(cameraTransition, target, .3)
 #	position = Vector3(player_pos.x, yPosition, player_pos.z) + cameraTransition + cameraPositionOffset
 #	look_at(Vector3(player_pos.x, yRotation, player_pos.z))	

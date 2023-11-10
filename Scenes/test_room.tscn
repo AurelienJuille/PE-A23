@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cdb1t75olq4ik"]
 
 [ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="1_nm2re"]
+[ext_resource type="PackedScene" uid="uid://dkya4f8m47qf5" path="res://Scenes/dust.tscn" id="2_3cjkn"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/une caisse.png" id="3_61ws3"]
 [ext_resource type="PackedScene" uid="uid://b4t622dfd8mmh" path="res://Obstacles/move_once.tscn" id="4_siila"]
 [ext_resource type="PackedScene" uid="uid://bu72onarr440o" path="res://Obstacles/move_multiple.tscn" id="5_av7er"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="8_yl6rr"]
 [ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/VEDH Percussion 026.wav" id="9_igbha"]
 [ext_resource type="Script" path="res://Scripts/tick.gd" id="10_2omwo"]
+[ext_resource type="PackedScene" uid="uid://bl7jp73fn8tbk" path="res://Scenes/pole.tscn" id="10_gki8y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrovb"]
 albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
@@ -20,15 +22,10 @@ size = Vector2(500, 100)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4v6q3"]
 data = PackedVector3Array(250, 0, 50, -250, 0, 50, 250, 0, -50, -250, 0, 50, -250, 0, -50, 250, 0, -50)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xdtw"]
-albedo_color = Color(1, 1.77, 1, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_7jkxn"]
-material = SubResource("StandardMaterial3D_8xdtw")
-size = Vector2(500, 50)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fo7ul"]
-data = PackedVector3Array(250, -2, 0, -250, -2, 0, 250, 2, 0, -250, -2, 0, -250, 2, 0, 250, 2, 0)
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_lmdvw"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 3989.57
+dof_blur_near_enabled = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_7di48"]
 
@@ -58,6 +55,36 @@ fog_density = 0.047
 
 [node name="TEST ROOM" type="Node3D"]
 
+[node name="ENVIRONMENT" type="Node3D" parent="."]
+
+[node name="Background" type="Node3D" parent="ENVIRONMENT"]
+
+[node name="pole2" parent="ENVIRONMENT/Background" instance=ExtResource("10_gki8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4115, 0.594507, -0.748896)
+
+[node name="pole3" parent="ENVIRONMENT/Background" instance=ExtResource("10_gki8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09868, 0.594507, 1.37947)
+
+[node name="pole4" parent="ENVIRONMENT/Background" instance=ExtResource("10_gki8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30939, 0.594507, 1.37947)
+
+[node name="pole" parent="ENVIRONMENT/Background" instance=ExtResource("10_gki8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10377, 0.646, -0.937215)
+
+[node name="Foreground" type="Node3D" parent="ENVIRONMENT"]
+
+[node name="dust" parent="ENVIRONMENT/Foreground" instance=ExtResource("2_3cjkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1861, 0, 0.74869)
+
+[node name="dust2" parent="ENVIRONMENT/Foreground" instance=ExtResource("2_3cjkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917826, 0, 0.74869)
+
+[node name="dust3" parent="ENVIRONMENT/Foreground" instance=ExtResource("2_3cjkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14373, 0, 0.34581)
+
+[node name="dust4" parent="ENVIRONMENT/Foreground" instance=ExtResource("2_3cjkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98079, 0, 0.34581)
+
 [node name="FLOOR" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_dl2qq")
 
@@ -66,27 +93,20 @@ mesh = SubResource("PlaneMesh_dl2qq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FLOOR/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4v6q3")
 
-[node name="WALL" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.99028, -1)
-mesh = SubResource("QuadMesh_7jkxn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WALL"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fo7ul")
-
 [node name="PLAYER" parent="." instance=ExtResource("1_nm2re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57397, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="PLAYER"]
-transform = Transform3D(1, 0, 0, 0, 0.998629, 0.052336, 0, -0.052336, 0.998629, 0, 0.5, 1.283)
+transform = Transform3D(1, 0, 0, 0, 0.976473, -0.215639, 0, 0.215639, 0.976473, 0, 0.0569928, 1.92195)
+attributes = SubResource("CameraAttributesPractical_lmdvw")
 current = true
+fov = 46.9
 size = 0.1
 script = ExtResource("6_yvgla")
-yPosition = 0.745
-yRotation = 1.0
-height = -0.69
-distanceFromPlayer = 1.8
+yPosition = -0.185
+yRotation = 1.325
+height = -2.795
+distanceFromPlayer = -1.535
 
 [node name="OBSTACLES" type="Node3D" parent="."]
 
@@ -100,7 +120,7 @@ mesh = SubResource("PrismMesh_7di48")
 shape = SubResource("ConcavePolygonShape3D_7ybe0")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="OBSTACLES"]
-transform = Transform3D(0.900683, 0, 0.434476, 0, 1, 0, -0.434476, 0, 0.900683, -0.200021, 0.0827749, -0.372674)
+transform = Transform3D(0.903043, 0, 0.429549, 0, 1, 0, -0.429549, 0, 0.903043, -2.03598, 0.0827749, 1.08661)
 mesh = SubResource("BoxMesh_12anu")
 
 [node name="EnemyOBSTACLES" type="Node3D" parent="." groups=["Enemies"]]
@@ -114,7 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59404, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.464452, 0.844931)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LIGHTS"]
-transform = Transform3D(1, 0, 0, 0, 0.796657, 0.604432, 0, -0.604432, 0.796657, -0.747861, 0.202662, -0.087955)
+transform = Transform3D(1, 0, 0, 0, 0.990946, 0.134262, 0, -0.134262, 0.990946, -2.49644, -0.155039, -0.087955)
 shadow_enabled = true
 shadow_bias = 0.01
 spot_range = 28.3771

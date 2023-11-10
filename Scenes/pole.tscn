@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl7jp73fn8tbk"]
+
+[ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/Elec_pole2.png" id="1_ukrut"]
+
+[node name="pole" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_ukrut")
+hframes = 5
+frame = 1

@@ -15,7 +15,7 @@ func set_variables() -> void:
 
   
 # RUN VARIABLES
-@export var max_speed := 1.0
+@export var max_speed := 2
 @export var time_to_full_speed := .2
 @export var time_to_stop := .1
 var is_jumping : bool
