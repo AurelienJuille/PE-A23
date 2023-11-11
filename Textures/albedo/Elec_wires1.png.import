@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp46eduqfar8w"
-path="res://.godot/imported/Elec_wires2.png-da40b15623b422e35d775311fb8bf3a0.ctex"
+uid="uid://fe61x6xsk2kr"
+path="res://.godot/imported/Elec_wires1.png-2b59ab5cf07502c78c18a8737c5d3d66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Elec_wires2.png"
-dest_files=["res://.godot/imported/Elec_wires2.png-da40b15623b422e35d775311fb8bf3a0.ctex"]
+source_file="res://Textures/albedo/Elec_wires1.png"
+dest_files=["res://.godot/imported/Elec_wires1.png-2b59ab5cf07502c78c18a8737c5d3d66.ctex"]
 
 [params]
 

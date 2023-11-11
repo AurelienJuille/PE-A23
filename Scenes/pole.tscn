@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl7jp73fn8tbk"]
+[gd_scene load_steps=2 format=3 uid="uid://3rjk51u3ttpb"]
 
-[ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/Elec_pole2.png" id="1_ukrut"]
+[ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_6rt0m"]
 
 [node name="pole" type="Node3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-texture = ExtResource("1_ukrut")
+texture = ExtResource("1_6rt0m")
 hframes = 5
 frame = 1

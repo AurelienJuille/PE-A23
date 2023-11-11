@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d380sp35a2t1r"
-path="res://.godot/imported/une caisse.png-61baeb01b8e541c8f0ec5a7cd7733436.ctex"
+uid="uid://d0q8dmtrfng25"
+path="res://.godot/imported/floor.png-14c88a6e8553e4d7465a53903abdc987.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/une caisse.png"
-dest_files=["res://.godot/imported/une caisse.png-61baeb01b8e541c8f0ec5a7cd7733436.ctex"]
+source_file="res://Textures/albedo/floor.png"
+dest_files=["res://.godot/imported/floor.png-14c88a6e8553e4d7465a53903abdc987.ctex"]
 
 [params]
 

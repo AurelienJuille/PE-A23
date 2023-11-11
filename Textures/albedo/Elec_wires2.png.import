@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://63fuw2enb28u"
-path="res://.godot/imported/floor_dust.png-19c06a76fdee6a917e04d7da60cd7bb6.ctex"
+uid="uid://bp46eduqfar8w"
+path="res://.godot/imported/Elec_wires2.png-f2d22b9cdcd2e5c75833737afe4010f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/floor_dust.png"
-dest_files=["res://.godot/imported/floor_dust.png-19c06a76fdee6a917e04d7da60cd7bb6.ctex"]
+source_file="res://Textures/albedo/Elec_wires2.png"
+dest_files=["res://.godot/imported/Elec_wires2.png-f2d22b9cdcd2e5c75833737afe4010f4.ctex"]
 
 [params]
 

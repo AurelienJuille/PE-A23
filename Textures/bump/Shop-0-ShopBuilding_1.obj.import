@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ca73nvcona78k"
+path="res://.godot/imported/Shop-0-ShopBuilding_1.obj-86801dcdede9abba4439b2181ef89a6d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Shop-0-ShopBuilding_1.obj-86801dcdede9abba4439b2181ef89a6d.mesh"]
+
+source_file="res://Textures/bump/Shop-0-ShopBuilding_1.obj"
+dest_files=["res://.godot/imported/Shop-0-ShopBuilding_1.obj-86801dcdede9abba4439b2181ef89a6d.mesh", "res://.godot/imported/Shop-0-ShopBuilding_1.obj-86801dcdede9abba4439b2181ef89a6d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
