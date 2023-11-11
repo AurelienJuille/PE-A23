@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bagrmb3y75um4"]
+
+[ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="1_gvu07"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snx2c"]
+albedo_color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ib3u4"]
+material = SubResource("StandardMaterial3D_snx2c")
+size = Vector2(100, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xnogs"]
+data = PackedVector3Array(50, -0.5, 0, -50, -0.5, 0, 50, 0.5, 0, -50, -0.5, 0, -50, 0.5, 0, 50, 0.5, 0)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_g8ufd"]
+
+[node name="Mecanics_test_room" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_ib3u4")
+skeleton = NodePath("")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xnogs")
+
+[node name="PLAYER" parent="." instance=ExtResource("1_gvu07")]
+
+[node name="Camera3D" type="Camera3D" parent="PLAYER"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185767, 1.3356)
+attributes = SubResource("CameraAttributesPractical_g8ufd")
