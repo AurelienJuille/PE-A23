@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqsbu10j3w7rs"]
+
+[ext_resource type="Texture2D" uid="uid://63fuw2enb28u" path="res://Textures/albedo/floor_dust.png" id="1_urtia"]
+
+[node name="pole" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165717, 0)
+texture = ExtResource("1_urtia")
