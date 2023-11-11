@@ -1,35 +1,35 @@
 [gd_scene load_steps=38 format=3 uid="uid://cdb1t75olq4ik"]
 
-[ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_45b4q"]
-[ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="1_nm2re"]
-[ext_resource type="Texture2D" uid="uid://ds3xv42epfwev" path="res://Textures/albedo/foreground-empty.png" id="2_pfirg"]
-[ext_resource type="Texture2D" uid="uid://cndr38hb1p32s" path="res://Textures/bump/bgEmission.png" id="3_ccyj0"]
-[ext_resource type="PackedScene" uid="uid://b4t622dfd8mmh" path="res://Obstacles/move_once.tscn" id="4_siila"]
-[ext_resource type="Texture2D" uid="uid://cf4fdvq53hm2o" path="res://Textures/bump/floor_bump.png" id="4_vcwyx"]
-[ext_resource type="Texture2D" uid="uid://d0q8dmtrfng25" path="res://Textures/albedo/floor.png" id="5_4pr1s"]
-[ext_resource type="PackedScene" uid="uid://bu72onarr440o" path="res://Obstacles/move_multiple.tscn" id="5_av7er"]
-[ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/albedo/une caisse.png" id="6_vb0yt"]
-[ext_resource type="Script" path="res://Scripts/Camera3Dtest.gd" id="6_yvgla"]
-[ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Test Music.mp3" id="7_hxbbc"]
-[ext_resource type="Texture2D" uid="uid://cpea515l76v4m" path="res://unt3itled_Shop-0-ShopBuilding_1.png" id="8_iuvob"]
-[ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="8_yl6rr"]
-[ext_resource type="Texture2D" uid="uid://cea14f3nalktl" path="res://unt3itled_Shop-0-ShopBuilding_1_Emission.png" id="9_0tmpo"]
-[ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/VEDH Percussion 026.wav" id="9_igbha"]
-[ext_resource type="Script" path="res://Scripts/tick.gd" id="10_2omwo"]
-[ext_resource type="ArrayMesh" uid="uid://ca73nvcona78k" path="res://Textures/bump/Shop-0-ShopBuilding_1.obj" id="16_h7o45"]
-[ext_resource type="ArrayMesh" uid="uid://dushxyhg4jv52" path="res://Textures/bump/Shop-2-PhoneCabin.obj" id="17_al8rn"]
-[ext_resource type="ArrayMesh" uid="uid://di43uacxpe4x5" path="res://Textures/bump/Shop-1-ShopBuilding_2.obj" id="18_ilye2"]
-[ext_resource type="ArrayMesh" uid="uid://broteypg12ew8" path="res://Textures/bump/Shop-3-Car.obj" id="19_3hjxv"]
+[ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_5u3vb"]
+[ext_resource type="Texture2D" uid="uid://ds3xv42epfwev" path="res://Textures/albedo/foreground-empty.png" id="2_0i6vv"]
+[ext_resource type="Texture2D" uid="uid://cndr38hb1p32s" path="res://Textures/bump/bgEmission.png" id="3_ld300"]
+[ext_resource type="ArrayMesh" uid="uid://ca73nvcona78k" path="res://Textures/bump/Shop-0-ShopBuilding_1.obj" id="4_drw4i"]
+[ext_resource type="ArrayMesh" uid="uid://dushxyhg4jv52" path="res://Textures/bump/Shop-2-PhoneCabin.obj" id="5_kknss"]
+[ext_resource type="ArrayMesh" uid="uid://di43uacxpe4x5" path="res://Textures/bump/Shop-1-ShopBuilding_2.obj" id="6_l25u8"]
+[ext_resource type="ArrayMesh" uid="uid://broteypg12ew8" path="res://Textures/bump/Shop-3-Car.obj" id="7_i57xb"]
+[ext_resource type="Texture2D" uid="uid://cpea515l76v4m" path="res://unt3itled_Shop-0-ShopBuilding_1.png" id="8_yu87o"]
+[ext_resource type="Texture2D" uid="uid://cea14f3nalktl" path="res://unt3itled_Shop-0-ShopBuilding_1_Emission.png" id="9_exgji"]
+[ext_resource type="Texture2D" uid="uid://d0q8dmtrfng25" path="res://Textures/albedo/floor.png" id="10_ipse7"]
+[ext_resource type="Texture2D" uid="uid://cf4fdvq53hm2o" path="res://Textures/bump/floor_bump.png" id="11_ee6cg"]
+[ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="12_e1sub"]
+[ext_resource type="Script" path="res://Scripts/Camera3Dtest.gd" id="13_kuyrk"]
+[ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/albedo/une caisse.png" id="14_bag6w"]
+[ext_resource type="PackedScene" uid="uid://b4t622dfd8mmh" path="res://Obstacles/move_once.tscn" id="15_ax4tc"]
+[ext_resource type="PackedScene" uid="uid://bu72onarr440o" path="res://Obstacles/move_multiple.tscn" id="16_tiiyu"]
+[ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Test Music.mp3" id="17_h7djf"]
+[ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_adh1l"]
+[ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/VEDH Percussion 026.wav" id="19_8a4pp"]
+[ext_resource type="Script" path="res://Scripts/tick.gd" id="20_remx7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkdth"]
 transparency = 1
 cull_mode = 2
-albedo_texture = ExtResource("2_pfirg")
+albedo_texture = ExtResource("2_0i6vv")
 emission_enabled = true
 emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
 emission_energy_multiplier = 141.07
 emission_operator = 1
-emission_texture = ExtResource("3_ccyj0")
+emission_texture = ExtResource("3_ld300")
 uv1_scale = Vector3(0.455, 0.455, 0.455)
 uv1_offset = Vector3(0, 0, 0.45)
 uv1_triplanar = true
@@ -44,16 +44,16 @@ size = Vector2(7.835, 2)
 resource_name = "palette"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("8_iuvob")
+albedo_texture = ExtResource("8_yu87o")
 emission_enabled = true
-emission_texture = ExtResource("9_0tmpo")
+emission_texture = ExtResource("9_exgji")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv4d4"]
 resource_name = "Material.001"
 cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.327273)
-albedo_texture = ExtResource("8_iuvob")
+albedo_texture = ExtResource("8_yu87o")
 roughness = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xt3b5"]
@@ -111,8 +111,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xt3b5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n7p7"]
-albedo_texture = ExtResource("5_4pr1s")
-roughness_texture = ExtResource("4_vcwyx")
+albedo_texture = ExtResource("10_ipse7")
+roughness_texture = ExtResource("11_ee6cg")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_offset = Vector3(-1.7, 0, -0.505)
 uv1_triplanar = true
@@ -146,12 +146,12 @@ dof_blur_near_transition = 3.2
 data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5xk8"]
-albedo_texture = ExtResource("6_vb0yt")
+albedo_texture = ExtResource("14_bag6w")
 metallic = 1.0
 metallic_specular = 0.42
-metallic_texture = ExtResource("6_vb0yt")
+metallic_texture = ExtResource("14_bag6w")
 metallic_texture_channel = 4
-roughness_texture = ExtResource("6_vb0yt")
+roughness_texture = ExtResource("14_bag6w")
 roughness_texture_channel = 4
 uv1_scale = Vector3(3, 2, 1)
 uv1_triplanar_sharpness = 0.707106
@@ -202,7 +202,7 @@ volumetric_fog_gi_inject = 4.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89054, 0.0179148, -0.622646)
 centered = false
 texture_filter = 0
-texture = ExtResource("1_45b4q")
+texture = ExtResource("1_5u3vb")
 hframes = 5
 
 [node name="Sprite3D2" type="MeshInstance3D" parent="ENVIRONMENT/Background"]
@@ -217,42 +217,42 @@ mesh = SubResource("PlaneMesh_q05pb")
 
 [node name="Shop-0-shopBuilding1" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(-0.190274, 0, -1.66343e-08, 0, 0.190274, 0, 1.66343e-08, 0, -0.190274, -11.6084, 0.690823, -0.627934)
-mesh = ExtResource("16_h7o45")
+mesh = ExtResource("4_drw4i")
 skeleton = NodePath("../../..")
 
 [node name="Shop-2-phoneCabin" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(0.163928, 0.00147287, -0.000750603, -0.00147389, 0.16393, -0.000219559, 0.000748598, 0.0002263, 0.163935, 1.64712, 0.463566, -0.452089)
-mesh = ExtResource("17_al8rn")
+mesh = ExtResource("5_kknss")
 skeleton = NodePath("../../..")
 
 [node name="Shop-1-shopBuilding2" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(-0.219038, 0, -1.91489e-08, 0, 0.219038, 0, 1.91489e-08, 0, -0.219038, -7.13286, 0.753629, -0.642434)
-mesh = ExtResource("18_ilye2")
+mesh = ExtResource("6_l25u8")
 skeleton = NodePath("../../..")
 
 [node name="Shop-3-car" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(0.214357, -0.000272419, -0.0478971, 0.000265563, 0.219643, -6.07462e-05, 0.0478971, 1.37385e-06, 0.214357, -4.93591, 0.18726, -1.88796)
-mesh = ExtResource("19_3hjxv")
+mesh = ExtResource("7_i57xb")
 skeleton = NodePath("../../..")
 
 [node name="Shop-3-car2" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(0.21364, 0, 0.0509987, 0, 0.219643, 0, -0.0509987, 0, 0.21364, -7.062, 0.18726, -1.88796)
-mesh = ExtResource("19_3hjxv")
+mesh = ExtResource("7_i57xb")
 skeleton = NodePath("../../..")
 
 [node name="Shop-3-car3" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(0.219643, 0, 0, 0, 0.219643, 0, 0, 0, 0.219643, -3.2131, 0.18726, -1.89028)
-mesh = ExtResource("19_3hjxv")
+mesh = ExtResource("7_i57xb")
 skeleton = NodePath("../../..")
 
 [node name="Shop-3-car4" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(-0.212159, 0, 0.0568477, 0, 0.219643, 0, -0.0568477, 0, -0.212159, -1.01667, 0.18726, -1.89028)
-mesh = ExtResource("19_3hjxv")
+mesh = ExtResource("7_i57xb")
 skeleton = NodePath("../../..")
 
 [node name="Shop-3-car5" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
 transform = Transform3D(-0.155311, 0, 0.155311, 0, 0.219643, 0, -0.155311, 0, -0.155311, -4.01667, 0.18726, 1.10972)
-mesh = ExtResource("19_3hjxv")
+mesh = ExtResource("7_i57xb")
 skeleton = NodePath("../../..")
 
 [node name="ShopBuilding_1" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
@@ -275,7 +275,7 @@ mesh = SubResource("PlaneMesh_dl2qq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FLOOR/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4v6q3")
 
-[node name="PLAYER" parent="." instance=ExtResource("1_nm2re")]
+[node name="PLAYER" parent="." instance=ExtResource("12_e1sub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57397, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="PLAYER"]
@@ -285,7 +285,7 @@ current = true
 fov = 46.9
 size = 0.1
 near = 0.121
-script = ExtResource("6_yvgla")
+script = ExtResource("13_kuyrk")
 yPosition = -0.185
 yRotation = 1.325
 height = -2.795
@@ -309,10 +309,10 @@ mesh = SubResource("BoxMesh_12anu")
 [node name="EnemyOBSTACLES" type="Node3D" parent="." groups=["Enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106845, 0, 0.0138512)
 
-[node name="MoveOnce" parent="EnemyOBSTACLES" instance=ExtResource("4_siila")]
+[node name="MoveOnce" parent="EnemyOBSTACLES" instance=ExtResource("15_ax4tc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59404, 0, 0)
 
-[node name="MoveMultiple" parent="EnemyOBSTACLES" instance=ExtResource("5_av7er")]
+[node name="MoveMultiple" parent="EnemyOBSTACLES" instance=ExtResource("16_tiiyu")]
 
 [node name="LIGHTS" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.464452, 0.844931)
@@ -355,16 +355,16 @@ omni_attenuation = 3.86374
 environment = SubResource("Environment_wjck8")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_hxbbc")
+stream = ExtResource("17_h7djf")
 volume_db = -80.0
-script = ExtResource("8_yl6rr")
+script = ExtResource("18_adh1l")
 
 [node name="StartTimer" type="Timer" parent="MusicControl"]
 
 [node name="Test sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_igbha")
+stream = ExtResource("19_8a4pp")
 volume_db = -80.0
-script = ExtResource("10_2omwo")
+script = ExtResource("20_remx7")
 
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
 [connection signal="timeout" from="MusicControl/StartTimer" to="MusicControl" method="_on_start_timer_timeout"]

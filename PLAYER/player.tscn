@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmsfvkhij0unq"]
+[gd_scene load_steps=14 format=3 uid="uid://bmsfvkhij0unq"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_0jlmp"]
 [ext_resource type="Texture2D" uid="uid://dvasyk52lkp3v" path="res://PLAYER/Character-Sheet.png" id="2_o4k87"]
@@ -6,14 +6,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3541"]
 atlas = ExtResource("2_o4k87")
 region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u2oxk"]
-atlas = ExtResource("2_o4k87")
-region = Rect2(96, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gjbl1"]
-atlas = ExtResource("2_o4k87")
-region = Rect2(48, 96, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kipjo"]
 atlas = ExtResource("2_o4k87")
@@ -59,22 +51,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u2oxk")
-}],
-"loop": true,
-"name": &"jump_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gjbl1")
-}],
-"loop": true,
-"name": &"jump_up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_kipjo")
 }, {
 "duration": 1.0,
@@ -116,7 +92,7 @@ double_sided = false
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_6mobs")
-animation = &"jump_up"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Area3D" type="Area3D" parent="."]
