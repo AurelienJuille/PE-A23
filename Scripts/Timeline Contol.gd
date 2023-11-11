@@ -35,25 +35,19 @@ func _physics_process(_delta):
 		songPositionInBeats = int(floor(songPosition / secondsPerBeat)) + beatsBeforeStart
 		songPositionInSubBeats = int(floor(songPosition / (secondsPerBeat / subMeasureDivision))) + (beatsBeforeStart * subMeasureDivision)
 		
-		#currentSubBeat = (songPositionInSubBeats % subMeasureDivision) + 1
+		currentSubBeat = (songPositionInSubBeats % subMeasureDivision)
 		
 		_report_beat()
 		
 func _report_beat():
-	
 	if lastReportedBeat < songPositionInBeats:
 		if measure > measures:
 			measures = 1
 		
-		#print(currentSubBeat)
 		lastReportedBeat = songPositionInBeats
 		measure += 1
-		#print(measure)
 	
 	if lastReportedSubBeat < songPositionInSubBeats:
-#		print("pos",songPositionInSubBeats)
-#		print("last",lastReportedSubBeat)
-#		print("current",currentSubBeat)
 		lastReportedSubBeat += 1
 		currentSubBeatSignal.emit()
 		
@@ -89,6 +83,6 @@ func _on_start_timer_timeout():
 		$StartTimer.start()
 	else:
 		play()
-		$StartTimer.stop
+		$StartTimer.stop()
 		
 	_report_beat()

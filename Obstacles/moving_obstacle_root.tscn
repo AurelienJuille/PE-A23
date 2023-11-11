@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://kgd5bx34pakk"]
+
+[ext_resource type="Script" path="res://Obstacles/moving_obstacle_root.gd" id="1_hlxat"]
+
+[sub_resource type="Animation" id="Animation_ouyeh"]
+resource_name = "test"
+length = 4.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gme27"]
+_data = {
+"test": SubResource("Animation_ouyeh")
+}
+
+[node name="Moving_obstacle_root" type="Node3D"]
+script = ExtResource("1_hlxat")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gme27")
+}
