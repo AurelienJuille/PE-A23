@@ -161,6 +161,7 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_q5xk8")
 size = Vector3(0.16, 0.16, 0.16)
 
+<<<<<<< Updated upstream
 [sub_resource type="Environment" id="Environment_wjck8"]
 reflected_light_source = 2
 tonemap_mode = 1
@@ -191,6 +192,10 @@ volumetric_fog_density = 0.2727
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission_energy = 35.7
 volumetric_fog_gi_inject = 4.0
+=======
+[sub_resource type="Environment" id="Environment_uld51"]
+ambient_light_source = 1
+>>>>>>> Stashed changes
 
 [node name="TEST ROOM" type="Node3D"]
 
@@ -352,7 +357,7 @@ omni_range = 4.619
 omni_attenuation = 3.86374
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wjck8")
+environment = SubResource("Environment_uld51")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_h7djf")

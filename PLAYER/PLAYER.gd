@@ -45,14 +45,14 @@ func _physics_process(delta):
 func animation():
 	if is_on_floor():
 		if velocity.x == 0:
-			$Sprite3D.play("idle")
+			$AnimationPlayer.play("Idle")
 		else:
-			$Sprite3D.play("run")
+			$AnimationPlayer.play("Run")
 	else:
 		if velocity.y > 0:
-			$Sprite3D.play("jump_up")
+			$AnimationPlayer.play("Jump_up")
 		else:
-			$Sprite3D.play("jump_down")
+			$AnimationPlayer.play("Jump_down")
 	
 	
 func handle_jump():
@@ -77,12 +77,10 @@ func handle_jump():
 
 func handle_run(delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	input_dir = Vector3(1,0,0)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.x != 0:
 		$Sprite3D.scale.x = sign(direction.x)
-		velocity.x = max_speed
-#	velocity.x = move_toward(velocity.x, direction.x * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.x) > abs(velocity.x) else time_to_stop))
+	velocity.x = move_toward(velocity.x, direction.x * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.x) > abs(velocity.x) else time_to_stop))
 #	velocity.z = move_toward(velocity.z, direction.z * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.z) > abs(velocity.z) else time_to_stop))
 	
 	
