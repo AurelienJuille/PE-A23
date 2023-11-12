@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 # JUMP VARIABLES
-@export var jump_height := .4
-@export var half_jump_up_duration := .25
+@export var jump_height := .45
+@export var jump_up_duration := .3
 @export var min_jump_up_duration := .1
 var max_fall_speed := 3.0
 var grav : float
@@ -10,8 +10,8 @@ var jump_strength : float
 
 # SET PHYSICS VARIABLES FROM PARAMETERS
 func set_variables() -> void:
-	grav = (2 * jump_height) / (half_jump_up_duration * half_jump_up_duration)
-	jump_strength = (2 * jump_height) / half_jump_up_duration
+	grav = (2 * jump_height) / (jump_up_duration * jump_up_duration)
+	jump_strength = (2 * jump_height) / jump_up_duration
 
   
 # RUN VARIABLES
@@ -19,21 +19,22 @@ func set_variables() -> void:
 @export var time_to_full_speed := .2
 @export var time_to_stop := .1
 var is_jumping : bool
-#var currentFrameUpForce: float
 var gravity: float = 2
-var releaseDownForce = 0.7
+
+
+# ANIMATION VARIABLES
+@onready var animation_tree = $AnimationTree
+var STATE_MACHINE
 
 func _ready():
 	set_variables()
+	STATE_MACHINE = animation_tree.get("parameters/playback")
 
 func _physics_process(delta):
-#	if $HollowKnightJumpTimer.time_left!=0:
-#		print("Timer : " + str($HollowKnightJumpTimer.time_left) + " | Pos.y : " + str(position.y))
 	if not is_on_floor():
 		velocity.y -= grav * delta
 	if is_on_floor():
 		velocity.y = .0
-#		currentFrameUpForce = jumpStrength
 	
 	handle_jump()
 	handle_run(delta)
@@ -45,34 +46,41 @@ func _physics_process(delta):
 func animation():
 	if is_on_floor():
 		if velocity.x == 0:
-			$AnimationPlayer.play("Idle")
+			STATE_MACHINE.travel("Idle")
 		else:
-			$AnimationPlayer.play("Run")
+			STATE_MACHINE.travel("Run")
 	else:
+#		was_on_floor = false
 		if velocity.y > 0:
-			$AnimationPlayer.play("Jump_up")
+			STATE_MACHINE.travel("Jump_up")
 		else:
-			$AnimationPlayer.play("Jump_down")
+			STATE_MACHINE.travel("Jump_down")
 	
-	
+
+var was_on_floor = true # Utile pour le coyote time
 func handle_jump():
-	if Input.is_action_just_pressed("JUMP") and is_on_floor():
+	# Press Space Buffer
+	if Input.is_action_just_pressed("JUMP"):
+		$JumpBufferTimer.start()
+	
+	if was_on_floor and not is_on_floor():
+		$CoyoteJumpTimer.start()
+		was_on_floor = false
+	
+	# Normal Jump
+	if (Input.is_action_just_pressed("JUMP") or $JumpBufferTimer.time_left > .0) and (is_on_floor() or $CoyoteJumpTimer.time_left > .0):
 		is_jumping = true
 		velocity.y = jump_strength
-#		velocity.y += currentFrameUpForce
 		$HollowKnightJumpTimer.start(min_jump_up_duration)
 	
 	# Hollow Knight Jump
 	elif not Input.is_action_pressed("JUMP") and is_jumping and $HollowKnightJumpTimer.time_left == .0 and velocity.y > 0:
 		velocity.y *= .3
 		is_jumping = false
-#		currentFrameUpForce = jump_strength
 	
 	# Dash downward
 	if Input.is_action_just_pressed("JUMP") and not is_on_floor():
 		velocity.y = -max_fall_speed
-#		velocity.y += max(currentFrameUpForce, 0)
-#		currentFrameUpForce = currentFrameUpForce/gravity
 
 
 func handle_run(delta):

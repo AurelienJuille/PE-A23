@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://brxfmt3a011ue"]
+[gd_scene load_steps=38 format=3 uid="uid://cumoos2igrugl"]
 
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Texture2D" uid="uid://ds3xv42epfwev" path="res://Textures/albedo/foreground-empty.png" id="2_f85hr"]
@@ -251,7 +251,7 @@ mesh = ExtResource("7_4yl1d")
 skeleton = NodePath("../../..")
 
 [node name="Shop-3-car5" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
-transform = Transform3D(-0.155311, 0, 0.155311, 0, 0.219643, 0, -0.155311, 0, -0.155311, -4.01667, 0.18726, 1.10972)
+transform = Transform3D(-0.155311, 0, 0.155311, 0, 0.219643, 0, -0.155311, 0, -0.155311, -6.02911, 0.18726, 1.10972)
 mesh = ExtResource("7_4yl1d")
 skeleton = NodePath("../../..")
 

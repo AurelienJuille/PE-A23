@@ -1,7 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmsfvkhij0unq"]
+[gd_scene load_steps=25 format=3 uid="uid://bmsfvkhij0unq"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_0jlmp"]
-[ext_resource type="Texture2D" uid="uid://piefemwd1ve6" path="res://PLAYER/Character.png" id="2_yu6ka"]
+[ext_resource type="Texture2D" uid="uid://bprgywrpk7e8w" path="res://PLAYER/Character.png" id="2_yu6ka"]
+
+[sub_resource type="Animation" id="Animation_fnn6n"]
+length = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_yu6ka")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
 
 [sub_resource type="Animation" id="Animation_sp4c5"]
 length = 0.07
@@ -261,11 +324,63 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3akx1"]
 _data = {
+"Crouch": SubResource("Animation_fnn6n"),
 "Idle": SubResource("Animation_sp4c5"),
 "Jump_down": SubResource("Animation_tw2qv"),
 "Jump_up": SubResource("Animation_odkol"),
 "Run": SubResource("Animation_kt7j0")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xonrt"]
+animation = &"Crouch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fob3a"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8vycu"]
+animation = &"Jump_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7lck"]
+animation = &"Jump_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tqv05"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_raal8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88o8y"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kbn6y"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wk2s0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n2s0w"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5a0hr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cewer"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mhdie"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xwn0j"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_65sxd"]
+states/Crouch/node = SubResource("AnimationNodeAnimation_xonrt")
+states/Crouch/position = Vector2(721, 140)
+states/Idle/node = SubResource("AnimationNodeAnimation_fob3a")
+states/Idle/position = Vector2(332, 251)
+states/Jump_down/node = SubResource("AnimationNodeAnimation_8vycu")
+states/Jump_down/position = Vector2(742, 320)
+states/Jump_up/node = SubResource("AnimationNodeAnimation_h7lck")
+states/Jump_up/position = Vector2(561, 412)
+states/Run/node = SubResource("AnimationNodeAnimation_tqv05")
+states/Run/position = Vector2(436, 129)
+states/Start/position = Vector2(182, 69)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_raal8"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_88o8y"), "Idle", "Jump_up", SubResource("AnimationNodeStateMachineTransition_kbn6y"), "Run", "Jump_up", SubResource("AnimationNodeStateMachineTransition_wk2s0"), "Jump_up", "Jump_down", SubResource("AnimationNodeStateMachineTransition_n2s0w"), "Jump_down", "Crouch", SubResource("AnimationNodeStateMachineTransition_5a0hr"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_cewer"), "Crouch", "Run", SubResource("AnimationNodeStateMachineTransition_mhdie"), "Crouch", "Idle", SubResource("AnimationNodeStateMachineTransition_xwn0j")]
+graph_offset = Vector2(-16, -32)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttvtw"]
 size = Vector3(0.151078, 0.281942, 0.223247)
@@ -299,6 +414,11 @@ libraries = {
 "": SubResource("AnimationLibrary_3akx1")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_65sxd")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -310,6 +430,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.138783, 0)
 shape = SubResource("BoxShape3D_ttvtw")
 
 [node name="HollowKnightJumpTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
