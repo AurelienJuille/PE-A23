@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cumoos2igrugl"]
+[gd_scene load_steps=39 format=3 uid="uid://cumoos2igrugl"]
 
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Texture2D" uid="uid://ds3xv42epfwev" path="res://Textures/albedo/foreground-empty.png" id="2_f85hr"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_fcbba"]
 [ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/VEDH Percussion 026.wav" id="19_wcy4b"]
 [ext_resource type="Script" path="res://Scripts/tick.gd" id="20_vxhpo"]
+[ext_resource type="PackedScene" uid="uid://bth4rmiyrhogj" path="res://Scenes/gametimer.tscn" id="21_s2icx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkdth"]
 transparency = 1
@@ -355,15 +356,17 @@ environment = SubResource("Environment_wjck8")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_lip5l")
-volume_db = -80.0
+volume_db = -35.932
 script = ExtResource("18_fcbba")
 
 [node name="StartTimer" type="Timer" parent="MusicControl"]
 
 [node name="Test sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_wcy4b")
-volume_db = -80.0
+volume_db = -26.237
 script = ExtResource("20_vxhpo")
+
+[node name="GAMETIMER" parent="." groups=["Enemies"] instance=ExtResource("21_s2icx")]
 
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
 [connection signal="timeout" from="MusicControl/StartTimer" to="MusicControl" method="_on_start_timer_timeout"]

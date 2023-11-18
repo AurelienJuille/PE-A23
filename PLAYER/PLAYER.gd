@@ -28,6 +28,7 @@ var STATE_MACHINE
 
 func _ready():
 	set_variables()
+	GLOBAL.PLAYER = self
 	STATE_MACHINE = animation_tree.get("parameters/playback")
 
 func _physics_process(delta):
