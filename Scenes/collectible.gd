@@ -11,13 +11,12 @@ enum BONUS {
 @export_file("*.mp3") var sound_2: String
 @export_file("*.mp3") var sound_3: String
 
-
 func _on_area_body_entered(body):
-	if body == GLOBAL.PLAYER:
-		print(beat_bonus)
+	if body == GLOBAL.PLAYER and visible:
+		visible = false
 		GLOBAL.GAME_TIMER.add_beat(beat_bonus)
-		self.queue_free()
 		var mp3 = load(sound_1)
-		$AudioStreamPlayer3D.set_stream(mp3)
+		$AudioStreamPlayer3D.stream = mp3
 		$AudioStreamPlayer3D.play()
-	pass # Replace with function body.
+		await $AudioStreamPlayer3D.finished
+		self.queue_free()
