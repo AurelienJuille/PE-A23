@@ -18,7 +18,7 @@ var idle_speed = 0.0
 var last_executed_beat : int
 
 
-func _process(delta):
+func _process(_delta):
 	if GLOBAL.MUSIC_CONTROL.songPositionInBeats % frequency == 0 and GLOBAL.MUSIC_CONTROL.songPositionInBeats != last_executed_beat:
 		last_executed_beat = GLOBAL.MUSIC_CONTROL.songPositionInBeats
 		attack()
@@ -43,10 +43,6 @@ func attack() -> void:
 	time_elapsed = 0
 	destination = GLOBAL.PLAYER.global_position + Vector3(0,0.2,0)
 	direction = (destination - self.global_position).normalized()
-	
-	
-#    start = self.position
-
 
 func _on_area_3d_body_entered(body):
 	if body == GLOBAL.PLAYER:

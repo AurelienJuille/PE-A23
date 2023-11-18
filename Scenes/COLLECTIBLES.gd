@@ -5,10 +5,6 @@ extends Node3D
 func _ready():
 	GLOBAL.COLLECTIBLES = self
 	
-	
-func _process(delta):
-	if Input.is_action_just_pressed("P"):
-		spawn_bonus(2, Vector2(-1, 0))
 
 
 func spawn_bonus(level : int, spawn_position : Vector2):

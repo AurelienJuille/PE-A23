@@ -1,9 +1,73 @@
-[gd_scene load_steps=25 format=3 uid="uid://bmsfvkhij0unq"]
+[gd_scene load_steps=39 format=3 uid="uid://bmsfvkhij0unq"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_0jlmp"]
 [ext_resource type="Texture2D" uid="uid://bprgywrpk7e8w" path="res://PLAYER/Character.png" id="2_yu6ka"]
+[ext_resource type="Texture2D" uid="uid://bw2kph7hvmwmb" path="res://PLAYER/slash.png" id="3_skqa7"]
 
-[sub_resource type="Animation" id="Animation_fnn6n"]
+[sub_resource type="Animation" id="Animation_4e5d3"]
+length = 0.14
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_yu6ka")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_r5wo0"]
 length = 0.07
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,7 +103,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -66,7 +130,7 @@ tracks/4/keys = {
 "values": [11]
 }
 
-[sub_resource type="Animation" id="Animation_sp4c5"]
+[sub_resource type="Animation" id="Animation_khgkk"]
 length = 0.07
 loop_mode = 1
 tracks/0/type = "value"
@@ -103,7 +167,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -130,7 +194,7 @@ tracks/4/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_tw2qv"]
+[sub_resource type="Animation" id="Animation_we5sb"]
 length = 0.07
 loop_mode = 1
 tracks/0/type = "value"
@@ -167,7 +231,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -194,7 +258,7 @@ tracks/4/keys = {
 "values": [10]
 }
 
-[sub_resource type="Animation" id="Animation_odkol"]
+[sub_resource type="Animation" id="Animation_b2yli"]
 length = 0.07
 loop_mode = 1
 tracks/0/type = "value"
@@ -231,7 +295,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -258,7 +322,7 @@ tracks/4/keys = {
 "values": [9]
 }
 
-[sub_resource type="Animation" id="Animation_kt7j0"]
+[sub_resource type="Animation" id="Animation_ksue4"]
 length = 0.56
 loop_mode = 1
 tracks/0/type = "value"
@@ -295,7 +359,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -322,14 +386,18 @@ tracks/4/keys = {
 "values": [1, 2, 3, 4, 5, 6, 7, 8]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3akx1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8eca"]
 _data = {
-"Crouch": SubResource("Animation_fnn6n"),
-"Idle": SubResource("Animation_sp4c5"),
-"Jump_down": SubResource("Animation_tw2qv"),
-"Jump_up": SubResource("Animation_odkol"),
-"Run": SubResource("Animation_kt7j0")
+"Attack_side": SubResource("Animation_4e5d3"),
+"Crouch": SubResource("Animation_r5wo0"),
+"Idle": SubResource("Animation_khgkk"),
+"Jump_down": SubResource("Animation_we5sb"),
+"Jump_up": SubResource("Animation_b2yli"),
+"Run": SubResource("Animation_ksue4")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_acxgk"]
+animation = &"Attack_side"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xonrt"]
 animation = &"Crouch"
@@ -367,51 +435,60 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xwn0j"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uaej1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j48sk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_od1tq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mgikl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5xfcx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cqy3v"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gjypn"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jk2jh"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_math8"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jogsp"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_65sxd"]
+states/Attack_side/node = SubResource("AnimationNodeAnimation_acxgk")
+states/Attack_side/position = Vector2(958, 193)
 states/Crouch/node = SubResource("AnimationNodeAnimation_xonrt")
-states/Crouch/position = Vector2(721, 140)
+states/Crouch/position = Vector2(634, 21)
 states/Idle/node = SubResource("AnimationNodeAnimation_fob3a")
 states/Idle/position = Vector2(332, 251)
 states/Jump_down/node = SubResource("AnimationNodeAnimation_8vycu")
-states/Jump_down/position = Vector2(742, 320)
+states/Jump_down/position = Vector2(812, 407)
 states/Jump_up/node = SubResource("AnimationNodeAnimation_h7lck")
 states/Jump_up/position = Vector2(561, 412)
 states/Run/node = SubResource("AnimationNodeAnimation_tqv05")
 states/Run/position = Vector2(436, 129)
 states/Start/position = Vector2(182, 69)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_raal8"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_88o8y"), "Idle", "Jump_up", SubResource("AnimationNodeStateMachineTransition_kbn6y"), "Run", "Jump_up", SubResource("AnimationNodeStateMachineTransition_wk2s0"), "Jump_up", "Jump_down", SubResource("AnimationNodeStateMachineTransition_n2s0w"), "Jump_down", "Crouch", SubResource("AnimationNodeStateMachineTransition_5a0hr"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_cewer"), "Crouch", "Run", SubResource("AnimationNodeStateMachineTransition_mhdie"), "Crouch", "Idle", SubResource("AnimationNodeStateMachineTransition_xwn0j")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_raal8"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_88o8y"), "Idle", "Jump_up", SubResource("AnimationNodeStateMachineTransition_kbn6y"), "Run", "Jump_up", SubResource("AnimationNodeStateMachineTransition_wk2s0"), "Jump_up", "Jump_down", SubResource("AnimationNodeStateMachineTransition_n2s0w"), "Jump_down", "Crouch", SubResource("AnimationNodeStateMachineTransition_5a0hr"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_cewer"), "Crouch", "Run", SubResource("AnimationNodeStateMachineTransition_mhdie"), "Crouch", "Idle", SubResource("AnimationNodeStateMachineTransition_xwn0j"), "Crouch", "Attack_side", SubResource("AnimationNodeStateMachineTransition_uaej1"), "Attack_side", "Crouch", SubResource("AnimationNodeStateMachineTransition_j48sk"), "Attack_side", "Jump_down", SubResource("AnimationNodeStateMachineTransition_od1tq"), "Jump_down", "Attack_side", SubResource("AnimationNodeStateMachineTransition_mgikl"), "Attack_side", "Jump_up", SubResource("AnimationNodeStateMachineTransition_5xfcx"), "Jump_up", "Attack_side", SubResource("AnimationNodeStateMachineTransition_cqy3v"), "Attack_side", "Run", SubResource("AnimationNodeStateMachineTransition_gjypn"), "Run", "Attack_side", SubResource("AnimationNodeStateMachineTransition_jk2jh"), "Attack_side", "Idle", SubResource("AnimationNodeStateMachineTransition_math8"), "Idle", "Attack_side", SubResource("AnimationNodeStateMachineTransition_jogsp")]
 graph_offset = Vector2(-16, -32)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttvtw"]
 size = Vector3(0.151078, 0.281942, 0.223247)
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_76pgj"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 4423.78
+dof_blur_far_transition = 7608.2
+dof_blur_near_enabled = true
+dof_blur_near_distance = 1.97
+dof_blur_near_transition = 3.2
+
 [node name="PLAYER" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_0jlmp")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0)
-shaded = true
-double_sided = false
-alpha_cut = 2
-texture_filter = 0
-texture = ExtResource("2_yu6ka")
-hframes = 4
-vframes = 3
-metadata/_aseprite_wizard_config_ = {
-"keep_anim_length": false,
-"layer": "Character",
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"op_exp": false,
-"player": "AnimationPlayer",
-"source": "res://PLAYER/Character.aseprite"
-}
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3akx1")
+"": SubResource("AnimationLibrary_g8eca")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -439,5 +516,39 @@ one_shot = true
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+centered = false
+offset = Vector2(-24, 0)
+texture_filter = 0
+texture = ExtResource("2_yu6ka")
+hframes = 4
+vframes = 4
+metadata/_aseprite_wizard_config_ = {
+"keep_anim_length": false,
+"layer": "Character",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "AnimationPlayer",
+"source": "res://PLAYER/Character.aseprite"
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.976473, -0.215639, 0, 0.215639, 0.976473, 0, 0.124988, 1.92195)
+attributes = SubResource("CameraAttributesPractical_76pgj")
+current = true
+fov = 47.0
+size = 0.1
+near = 0.121
+
+[node name="Slash" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+
+[node name="Slash_Sprite" type="Sprite3D" parent="Slash"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 1.86265e-09, 0, 0, 0.08, 0.0385057, 0.0250537, 0.050032)
+texture = ExtResource("3_skqa7")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

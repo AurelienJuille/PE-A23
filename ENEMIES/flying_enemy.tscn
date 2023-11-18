@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c13gmu48icrph"]
+[gd_scene load_steps=13 format=3 uid="uid://c13gmu48icrph"]
 
 [ext_resource type="Script" path="res://ENEMIES/flying_enemy.gd" id="1_k6whu"]
 [ext_resource type="Texture2D" uid="uid://bbenu154gcyfr" path="res://ENEMIES/Drone.png" id="2_s5c6x"]
@@ -10,18 +10,6 @@ point_count = 6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ntg0f"]
 size = Vector3(0.161301, 0.0810536, 0.163739)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfuvr"]
-albedo_color = Color(0.682353, 0.407843, 0, 1)
-emission_enabled = true
-emission = Color(0.780392, 0, 0, 1)
-emission_energy_multiplier = 2.05
-
-[sub_resource type="SphereMesh" id="SphereMesh_o1eka"]
-lightmap_size_hint = Vector2i(17, 9)
-material = SubResource("StandardMaterial3D_cfuvr")
-radius = 0.6
-height = 0.8
 
 [sub_resource type="Animation" id="Animation_o5nyt"]
 length = 0.001
@@ -278,13 +266,16 @@ _data = {
 "charge": SubResource("Animation_itmu8")
 }
 
+[sub_resource type="Animation" id="Animation_bbpr7"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_vu36p"]
 length = 0.21
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite3D:texture")
+tracks/0/path = NodePath("../MeshInstance3D/Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -296,7 +287,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite3D:hframes")
+tracks/1/path = NodePath("../MeshInstance3D/Sprite3D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -308,7 +299,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite3D:vframes")
+tracks/2/path = NodePath("../MeshInstance3D/Sprite3D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
@@ -320,7 +311,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Sprite3D:visible")
+tracks/3/path = NodePath("../MeshInstance3D/Sprite3D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
@@ -332,7 +323,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Sprite3D:frame")
+tracks/4/path = NodePath("../MeshInstance3D/Sprite3D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
@@ -342,16 +333,13 @@ tracks/4/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_bbpr7"]
-length = 0.001
-
 [sub_resource type="Animation" id="Animation_ob8gr"]
 length = 0.03
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite3D:texture")
+tracks/0/path = NodePath("../MeshInstance3D/Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -363,7 +351,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite3D:hframes")
+tracks/1/path = NodePath("../MeshInstance3D/Sprite3D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -375,7 +363,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite3D:vframes")
+tracks/2/path = NodePath("../MeshInstance3D/Sprite3D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
@@ -387,7 +375,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Sprite3D:visible")
+tracks/3/path = NodePath("../MeshInstance3D/Sprite3D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
@@ -399,7 +387,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Sprite3D:frame")
+tracks/4/path = NodePath("../MeshInstance3D/Sprite3D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
@@ -431,23 +419,10 @@ shape = SubResource("BoxShape3D_ntg0f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.113234, 0, 0, 0, 0.113234, 0, 0, 0, 0.113234, 0, 0, 0)
-visible = false
 layers = 3
-mesh = SubResource("SphereMesh_o1eka")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ymkeq")
-}
-
-[node name="AnimationPlayerSprite" type="AnimationPlayer" parent="."]
-root_node = NodePath("../AnimationPlayer")
-autoplay = "animation"
-libraries = {
-"": SubResource("AnimationLibrary_cgli0")
-}
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(8.83127, 0, 0, 0, 8.83127, 0, 0, 0, 8.83127, 0, 0.0416334, 0)
 texture_filter = 0
 texture = ExtResource("2_s5c6x")
 hframes = 3
@@ -465,7 +440,20 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://ENEMIES/Drone.aseprite"
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ymkeq")
+}
+
+[node name="AnimationPlayerSprite" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+autoplay = "animation"
+libraries = {
+"": SubResource("AnimationLibrary_cgli0")
+}
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qmnwd")
+disabled = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

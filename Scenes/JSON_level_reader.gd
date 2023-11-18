@@ -30,7 +30,7 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 			var info = content[beat]
 			if info.has("spawn"):
 				for ennemy in info["spawn"]:
-					var child_scene = flying_enemy_scene if str(ennemy["type"]) == "flying" else "Mettre la scène correspondante à l'ennemi"
+					var child_scene = flying_enemy_scene if str(ennemy["type"]) == "flying" else flying_enemy_scene
 					
 					var child = child_scene.instantiate()
 					enemy_dict[ennemy["type"]].append(child)

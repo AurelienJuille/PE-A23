@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 # JUMP VARIABLES
-@export var jump_height := .45
-@export var jump_up_duration := .3
+@export var jump_height := .5
+@export var jump_up_duration := .25
 @export var min_jump_up_duration := .1
 var max_fall_speed := 3.0
 var grav : float
@@ -19,7 +19,13 @@ func set_variables() -> void:
 @export var time_to_full_speed := .2
 @export var time_to_stop := .1
 var is_jumping : bool
-var gravity: float = 2
+
+var dash_force = 10.0
+var dash_timer_duration = .2
+var dash_timer = .0
+var dash_cooldown_duration = .5
+var dash_cooldown = .0
+
 
 
 # ANIMATION VARIABLES
@@ -34,18 +40,37 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y -= grav * delta
+		velocity.y -= grav * delta * (3 if velocity.y > max_fall_speed else 1)
 	if is_on_floor():
 		velocity.y = .0
 	
-	handle_jump()
-	handle_run(delta)
 	
+	# MOVEMENT
+	handle_dash(delta)
+	if dash_cooldown > 0:
+		dash_cooldown -= delta
+	
+	if dash_timer > 0:
+		$Slash.visible = true
+		dash_timer -= delta
+	else:
+		$Slash.visible = false
+		handle_jump()
+		handle_run(delta)
+	
+	velocity.z = 0
 	move_and_slide()
 	animation()
 
 
 func animation():
+	if velocity.x != 0:
+		$Sprite3D.scale.x = sign(velocity.x)
+	
+	if dash_timer > 0:
+		STATE_MACHINE.travel("Attack_side")
+		return
+	
 	if is_on_floor():
 		if velocity.x == 0:
 			STATE_MACHINE.travel("Idle")
@@ -57,7 +82,7 @@ func animation():
 			STATE_MACHINE.travel("Jump_up")
 		else:
 			STATE_MACHINE.travel("Jump_down")
-	
+
 
 var was_on_floor = true # Utile pour le coyote time
 func handle_jump():
@@ -88,12 +113,41 @@ func handle_jump():
 func handle_run(delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction.x != 0:
-		$Sprite3D.scale.x = sign(direction.x)
-	velocity.x = move_toward(velocity.x, direction.x * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.x) > abs(velocity.x) else time_to_stop))
-#	velocity.z = move_toward(velocity.z, direction.z * max_speed, (1.0 if is_on_floor() else .33) * max_speed * delta / (time_to_full_speed if abs(direction.z) > abs(velocity.z) else time_to_stop))
 	
+	var weight = max_speed * delta
+
+	if not is_on_floor():
+		weight *= .33
+		
+	if abs(direction.x) > abs(velocity.x):
+		weight /= time_to_full_speed
+	else:
+		weight /= time_to_stop
 	
+	if abs(velocity.x) > max_speed:
+		weight *= 5
+	
+	velocity.x = move_toward(velocity.x, direction.x * max_speed, weight)
+
+
+var dash_dir
+func handle_dash(_delta):
+	if dash_cooldown <= 0:
+		if Input.is_action_just_pressed("DASH"):
+			var position2D = get_viewport().get_mouse_position()
+			var dropPlane  = Plane(Vector3(0, 0, 1), 0)
+			var position3D = dropPlane.intersects_ray($Camera3D.project_ray_origin(position2D),$Camera3D.project_ray_normal(position2D))
+			dash_dir = (position3D - Vector3(0, .12, 0) - global_position).normalized()
+			dash_timer = dash_timer_duration
+			dash_cooldown = dash_cooldown_duration
+			$Slash.rotation = Vector3.ZERO
+			$Slash.rotate(Vector3(0,0,1), dash_dir.angle_to(Vector3(1,0,0)))
+			$Slash/Slash_Sprite.flip_v = dash_dir.x < 0
+	elif dash_timer > 0:
+		var speed = (dash_timer / dash_timer_duration) * dash_force
+		velocity = dash_dir * speed
+
+
 func die():
 #	self.visible = false
 	print("You Lost")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cumoos2igrugl"]
+[gd_scene load_steps=39 format=3 uid="uid://cumoos2igrugl"]
 
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_ycj8b"]
@@ -14,10 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d0q8dmtrfng25" path="res://Textures/albedo/floor.png" id="10_mjsm3"]
 [ext_resource type="Texture2D" uid="uid://cf4fdvq53hm2o" path="res://Textures/bump/floor_bump.png" id="11_s0eyi"]
 [ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="12_butpa"]
-[ext_resource type="Script" path="res://Scripts/Camera3Dtest.gd" id="13_iq2f2"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/albedo/une caisse.png" id="14_askw3"]
-[ext_resource type="PackedScene" uid="uid://b4t622dfd8mmh" path="res://Obstacles/move_once.tscn" id="15_2txxj"]
-[ext_resource type="PackedScene" uid="uid://bu72onarr440o" path="res://Obstacles/move_multiple.tscn" id="16_ednur"]
 [ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Music/Test Music.mp3" id="17_qedfm"]
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_fcbba"]
 [ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/Music/VEDH Percussion 026.wav" id="19_1db6h"]
@@ -137,14 +134,6 @@ size = Vector2(500, 100)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4v6q3"]
 data = PackedVector3Array(250, 0, 50, -250, 0, 50, 250, 0, -50, -250, 0, 50, -250, 0, -50, 250, 0, -50)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_lmdvw"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 1784.71
-dof_blur_far_transition = 7608.2
-dof_blur_near_enabled = true
-dof_blur_near_distance = 1.97
-dof_blur_near_transition = 3.2
-
 [sub_resource type="PrismMesh" id="PrismMesh_7di48"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7ybe0"]
@@ -201,6 +190,9 @@ volumetric_fog_gi_inject = 4.0
 script = ExtResource("1_ycj8b")
 json_file_path = "res://Levels/test_level.json"
 flying_enemy_scene = ExtResource("2_tacjf")
+
+[node name="PLAYER" parent="." instance=ExtResource("12_butpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57397, 0, 0)
 
 [node name="ENVIRONMENT" type="Node3D" parent="."]
 
@@ -283,21 +275,6 @@ mesh = SubResource("PlaneMesh_dl2qq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FLOOR/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4v6q3")
 
-[node name="PLAYER" parent="." instance=ExtResource("12_butpa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57397, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="PLAYER"]
-transform = Transform3D(1, 0, 0, 0, 0.976473, -0.215639, 0, 0.215639, 0.976473, 0, 0.124988, 1.92195)
-attributes = SubResource("CameraAttributesPractical_lmdvw")
-fov = 46.9
-size = 0.1
-near = 0.121
-script = ExtResource("13_iq2f2")
-yPosition = -0.185
-yRotation = 1.325
-height = -2.795
-distanceFromPlayer = -1.535
-
 [node name="OBSTACLES" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OBSTACLES"]
@@ -315,11 +292,6 @@ mesh = SubResource("BoxMesh_12anu")
 
 [node name="EnemyOBSTACLES" type="Node3D" parent="." groups=["Enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106845, 0, 0.0138512)
-
-[node name="MoveOnce" parent="EnemyOBSTACLES" instance=ExtResource("15_2txxj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59404, 0, 0)
-
-[node name="MoveMultiple" parent="EnemyOBSTACLES" instance=ExtResource("16_ednur")]
 
 [node name="ENEMIES" type="Node3D" parent="."]
 
