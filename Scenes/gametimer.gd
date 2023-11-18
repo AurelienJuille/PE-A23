@@ -22,3 +22,8 @@ func _on_music_control_current_sub_beat_signal():
 		$CanvasLayer/Label.text = str(beats_left)
 		if beats_left <= 0:
 			GLOBAL.PLAYER.die()
+			
+func add_beat(value : int) -> void:
+	beats_left += value
+	$CanvasLayer/Label.text = str(beats_left)
+	

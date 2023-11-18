@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://boo2r8tx3v02h"
-path="res://.godot/imported/VEDH Percussion 026.wav-842e63b89901244ec903c9c8710723d9.sample"
+path="res://.godot/imported/VEDH Percussion 026.wav-d7d113a1e2fbcb8455fd72a23abc5e5c.sample"
 
 [deps]
 
-source_file="res://Audio/VEDH Percussion 026.wav"
-dest_files=["res://.godot/imported/VEDH Percussion 026.wav-842e63b89901244ec903c9c8710723d9.sample"]
+source_file="res://Audio/Music/VEDH Percussion 026.wav"
+dest_files=["res://.godot/imported/VEDH Percussion 026.wav-d7d113a1e2fbcb8455fd72a23abc5e5c.sample"]
 
 [params]
 

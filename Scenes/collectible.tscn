@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://djdglvv63pfn2"]
+
+[ext_resource type="Script" path="res://Scenes/collectible.gd" id="1_p5qsa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2anr4"]
+emission_enabled = true
+emission = Color(1, 0.65098, 0.411765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_isuwq"]
+material = SubResource("StandardMaterial3D_2anr4")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bym8i"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Collectible" type="Node3D"]
+script = ExtResource("1_p5qsa")
+sound_1 = "res://Audio/SFX/collectible sound.mp3"
+sound_2 = "res://Audio/SFX/collectible sound.mp3"
+sound_3 = "res://Audio/SFX/collectible sound.mp3"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0987405, 0, 0, 0, 0.0987405, 0, 0, 0, 0.0987405, 0, 0, 0)
+mesh = SubResource("BoxMesh_isuwq")
+
+[node name="area" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/area"]
+shape = SubResource("ConcavePolygonShape3D_bym8i")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 80.0
+
+[connection signal="body_entered" from="MeshInstance3D/area" to="." method="_on_area_body_entered"]

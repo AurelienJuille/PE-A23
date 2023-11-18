@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cumoos2igrugl"]
+[gd_scene load_steps=40 format=3 uid="uid://cumoos2igrugl"]
 
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Texture2D" uid="uid://ds3xv42epfwev" path="res://Textures/albedo/foreground-empty.png" id="2_f85hr"]
@@ -16,11 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/albedo/une caisse.png" id="14_askw3"]
 [ext_resource type="PackedScene" uid="uid://b4t622dfd8mmh" path="res://Obstacles/move_once.tscn" id="15_2txxj"]
 [ext_resource type="PackedScene" uid="uid://bu72onarr440o" path="res://Obstacles/move_multiple.tscn" id="16_ednur"]
-[ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Test Music.mp3" id="17_lip5l"]
+[ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Music/Test Music.mp3" id="17_qedfm"]
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_fcbba"]
-[ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/VEDH Percussion 026.wav" id="19_wcy4b"]
+[ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/Music/VEDH Percussion 026.wav" id="19_1db6h"]
 [ext_resource type="Script" path="res://Scripts/tick.gd" id="20_vxhpo"]
 [ext_resource type="PackedScene" uid="uid://bth4rmiyrhogj" path="res://Scenes/gametimer.tscn" id="21_s2icx"]
+[ext_resource type="PackedScene" uid="uid://djdglvv63pfn2" path="res://Scenes/collectible.tscn" id="22_raver"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkdth"]
 transparency = 1
@@ -355,18 +356,22 @@ omni_attenuation = 3.86374
 environment = SubResource("Environment_wjck8")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_lip5l")
-volume_db = -35.932
+stream = ExtResource("17_qedfm")
+volume_db = -80.0
 script = ExtResource("18_fcbba")
 
 [node name="StartTimer" type="Timer" parent="MusicControl"]
 
 [node name="Test sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_wcy4b")
+stream = ExtResource("19_1db6h")
 volume_db = -26.237
 script = ExtResource("20_vxhpo")
 
 [node name="GAMETIMER" parent="." groups=["Enemies"] instance=ExtResource("21_s2icx")]
+
+[node name="Collectible" parent="." instance=ExtResource("22_raver")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83773, 0, 0)
+beat_bonus = 20
 
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
 [connection signal="timeout" from="MusicControl/StartTimer" to="MusicControl" method="_on_start_timer_timeout"]
