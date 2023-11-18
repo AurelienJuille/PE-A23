@@ -30,6 +30,7 @@ func _ready():
 	set_variables()
 	GLOBAL.PLAYER = self
 	STATE_MACHINE = animation_tree.get("parameters/playback")
+	get_parent().readJSON()
 
 func _physics_process(delta):
 	if not is_on_floor():

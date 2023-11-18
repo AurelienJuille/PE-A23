@@ -37,6 +37,7 @@ shape = SubResource("ConcavePolygonShape3D_xnogs")
 [node name="Camera3D" type="Camera3D" parent="PLAYER"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185767, 1.3356)
 attributes = SubResource("CameraAttributesPractical_g8ufd")
+current = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dkgtm")

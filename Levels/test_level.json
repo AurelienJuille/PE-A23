@@ -9,17 +9,7 @@
 					}
 				],
 			
-			"frequency": 
-				[
-					{
-						"type": "flying",
-						"value": 4
-					},
-					{
-						"type": "laser",
-						"value": 1
-					}
-				]
+			
 		},
 	
 }

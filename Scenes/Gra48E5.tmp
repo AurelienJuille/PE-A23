@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_ycj8b"]
 [ext_resource type="Texture2D" uid="uid://ds3xv42epfwev" path="res://Textures/albedo/foreground-empty.png" id="2_f85hr"]
-[ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://ENEMIES/flying_enemy.tscn" id="2_tacjf"]
+[ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://Scenes/flying_enemy.tscn" id="2_tacjf"]
 [ext_resource type="Texture2D" uid="uid://cndr38hb1p32s" path="res://Textures/bump/bgEmission.png" id="3_wdnkf"]
 [ext_resource type="ArrayMesh" uid="uid://ca73nvcona78k" path="res://Textures/bump/Shop-0-ShopBuilding_1.obj" id="4_uv33r"]
 [ext_resource type="ArrayMesh" uid="uid://dushxyhg4jv52" path="res://Textures/bump/Shop-2-PhoneCabin.obj" id="5_y6f00"]
@@ -200,7 +200,7 @@ volumetric_fog_gi_inject = 4.0
 [node name="TEST ROOM" type="Node3D"]
 script = ExtResource("1_ycj8b")
 json_file_path = "res://Levels/test_level.json"
-flying_ennemy_scene = ExtResource("2_tacjf")
+flying_ennemy = ExtResource("2_tacjf")
 
 [node name="ENVIRONMENT" type="Node3D" parent="."]
 

@@ -3,49 +3,51 @@ extends Node3D
 @export_file("*json") var json_file_path
 var content
 var file_read = false
+var last_beat_executed : String
 
 # ENEMIES TO SPAWN
-@export var flying_ennemy: PackedScene
+@export var flying_ennemy_scene: PackedScene
 var enemy_dict = {
 	"flying": []
 }
 
 func readJSON():
-	var file = FileAccess.open(json_file_path, FileAccess.READ)
-	var content_as_text = file.get_as_text()
-	content = JSON.parse_string(content_as_text)
+	var json_as_text = FileAccess.get_file_as_string(json_file_path)
+	content = JSON.parse_string(json_as_text)
+	print(content)
 	file_read = true
-	
+
 
 func _ready():
 	GLOBAL.MUSIC_CONTROL.currentSubBeatSignal.connect(_on_music_control_current_sub_beat_signal)
 	GLOBAL.SPAWNER = self
 
-func _process(delta):
-	if Input.is_action_just_pressed("P"):
-		readJSON()
-		
-
 
 func _on_music_control_current_sub_beat_signal() -> bool:
 	if file_read:
-		for beat in content:
-			if GLOBAL.MUSIC_CONTROL.songPositionInBeats == int(beat):
-				if beat["spawn"]:
-					for ennemy in beat["spawn"]:
-						var child = flying_ennemy if ennemy["type"] == "flying" else null
-						enemy_dict[ennemy["type"]].append(child)
-						
-						child.visible = false
-						child.instantiate()
-						$ENEMIES.add_child(child)
-						child.global_position = ennemy["position"]
-						child.visible = true
-				if beat["frequency"]:
-					for new_frequency in beat["frequency"]:
-						for enemy in enemy_dict[new_frequency["type"]]:
-							enemy.frequency = new_frequency["value"]
-				return true
+		var beat = str(GLOBAL.MUSIC_CONTROL.songPositionInBeats)
+		if content.has(beat) and beat != last_beat_executed:
+			last_beat_executed = beat
+			var info = content[beat]
+			if info.has("spawn"):
+				for ennemy in info["spawn"]:
+					var child_scene = flying_ennemy_scene if str(ennemy["type"]) == "flying" else "Mettre la scène correspondante à l'ennemi"
+					
+					var child = child_scene.instantiate()
+					enemy_dict[ennemy["type"]].append(child)
+					child.visible = false
+					$ENEMIES.add_child(child)
+					var pos = ennemy["position"]
+					child.global_position = Vector3(pos[0], pos[1], pos[2])
+					child.visible = true
+			
+			if info.has("frequency"):
+				for new_frequency in info["frequency"]:
+					for enemy in enemy_dict[new_frequency["type"]]:
+						enemy.frequency = new_frequency["value"]
+			return true
 		return true
 	else:
 		return false
+	
+	
