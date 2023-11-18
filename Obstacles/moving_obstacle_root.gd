@@ -6,12 +6,6 @@ extends Node3D
 
 @export var end_pos: Vector3
 
-#var global_start_pos
-#
-#func _ready():
-#	global_start_pos = global_position
-#
-#func ç
 
 func init():
 	GLOBAL.MUSIC_CONTROL.currentSubBeatSignal.connect(_on_music_control_current_sub_beat_signal)
