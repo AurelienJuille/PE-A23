@@ -16,6 +16,8 @@ func _on_area_body_entered(body):
 		visible = false
 		GLOBAL.GAME_TIMER.add_beat(beat_bonus)
 		var mp3 = load(sound_1)
+		
+		
 		$AudioStreamPlayer3D.stream = mp3
 		$AudioStreamPlayer3D.play()
 		await $AudioStreamPlayer3D.finished

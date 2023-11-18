@@ -1,0 +1,25 @@
+{
+	"4":
+		{
+			"spawn":
+				[
+					{
+						"type": "flying",
+						"position": [1,1,0]
+					}
+				],
+			
+			"frequency": 
+				[
+					{
+						"type": "flying",
+						"value": 4
+					},
+					{
+						"type": "laser",
+						"value": 1
+					}
+				]
+		},
+	
+}
