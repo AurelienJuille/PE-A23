@@ -6,7 +6,7 @@ var file_read = false
 var last_beat_executed : String
 
 # ENEMIES TO SPAWN
-@export var flying_ennemy_scene: PackedScene
+@export var flying_enemy_scene: PackedScene
 var enemy_dict = {
 	"flying": []
 }
@@ -14,7 +14,6 @@ var enemy_dict = {
 func readJSON():
 	var json_as_text = FileAccess.get_file_as_string(json_file_path)
 	content = JSON.parse_string(json_as_text)
-	print(content)
 	file_read = true
 
 
@@ -31,7 +30,7 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 			var info = content[beat]
 			if info.has("spawn"):
 				for ennemy in info["spawn"]:
-					var child_scene = flying_ennemy_scene if str(ennemy["type"]) == "flying" else "Mettre la scène correspondante à l'ennemi"
+					var child_scene = flying_enemy_scene if str(ennemy["type"]) == "flying" else "Mettre la scène correspondante à l'ennemi"
 					
 					var child = child_scene.instantiate()
 					enemy_dict[ennemy["type"]].append(child)
