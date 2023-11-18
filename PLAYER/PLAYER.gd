@@ -140,8 +140,13 @@ func handle_dash(_delta):
 			dash_dir = (position3D - Vector3(0, .12, 0) - global_position).normalized()
 			dash_timer = dash_timer_duration
 			dash_cooldown = dash_cooldown_duration
+			
 			$Slash.rotation = Vector3.ZERO
-			$Slash.rotate(Vector3(0,0,1), dash_dir.angle_to(Vector3(1,0,0)))
+			var angle = dash_dir.angle_to(Vector3(1,0,0))
+			if dash_dir.y <= 0:
+				angle = 2 * PI - angle
+			$Slash.rotate(Vector3(0,0,1), angle)
+			
 			$Slash/Slash_Sprite.flip_v = dash_dir.x < 0
 	elif dash_timer > 0:
 		var speed = (dash_timer / dash_timer_duration) * dash_force
