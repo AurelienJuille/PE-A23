@@ -46,7 +46,7 @@ func _physics_process(delta):
 	
 	
 	# MOVEMENT
-	handle_dash(delta)
+	handle_dash()
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
 	
@@ -131,7 +131,7 @@ func handle_run(delta):
 
 
 var dash_dir
-func handle_dash(_delta):
+func handle_dash():
 	if dash_cooldown <= 0:
 		if Input.is_action_just_pressed("DASH"):
 			#DASH MECANIC
@@ -165,6 +165,7 @@ func _on_slash_area_area_entered(area):
 
 
 func slash_hit(area):
+	handle_dash()
 	if area.get_parent().is_in_group("Enemies") and area.get_parent().has_method("get_hit"):
 		if dash_timer > .0:
 			area.get_parent().get_hit()
