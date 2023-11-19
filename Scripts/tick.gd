@@ -1,5 +1,4 @@
 extends AudioStreamPlayer
-@onready var musicControlNode: AudioStreamPlayer = get_parent().get_node("MusicControl")
 var subBeatSignal : Signal
 #var musicControlNode: AudioStreamPlayer
 
@@ -20,6 +19,6 @@ func _process(_delta):
 
 func _on_music_control_current_sub_beat_signal():
 	#print(musicControlNode.lastReportedSubBeat)
-	if (musicControlNode.lastReportedSubBeat % 4 + 1) == 1:
+	if (GLOBAL.MUSIC_CONTROL.lastReportedSubBeat % 4 + 1) == 1:
 		play()
 	pass # Replace with function body.

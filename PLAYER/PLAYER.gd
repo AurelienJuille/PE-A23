@@ -127,7 +127,7 @@ func handle_run(delta):
 	if abs(velocity.x) > max_speed:
 		weight *= 5
 	
-	velocity.x = move_toward(velocity.x, direction.x * max_speed, weight)
+	velocity.x = move_toward(velocity.x, direction.x * max_speed, weight*3)
 
 
 var dash_dir
@@ -156,7 +156,7 @@ func handle_dash():
 
 func die():
 	get_tree().reload_current_scene()
-	get_node("/root/TEST ROOM/MusicControl").stop()
+# 	get_node("/root/TEST ROOM/MusicControl").stop()
 
 
 # SLASH HIT
