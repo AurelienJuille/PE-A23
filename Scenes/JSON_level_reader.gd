@@ -6,6 +6,7 @@ var file_read = false
 var last_beat_executed : String
 
 # ENEMIES TO SPAWN
+@export var bonus_scene: PackedScene
 @export var flying_enemy_scene: PackedScene
 var enemy_dict = {
 	"flying": []
@@ -30,10 +31,15 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 			var info = content[beat]
 			if info.has("spawn"):
 				for ennemy in info["spawn"]:
-					var child_scene = flying_enemy_scene if str(ennemy["type"]) == "flying" else flying_enemy_scene
+					var t = str(ennemy["type"])
+					var child_scene = bonus_scene if t == "bonus" else flying_enemy_scene if t == "flying" else flying_enemy_scene
 					
 					var child = child_scene.instantiate()
-					enemy_dict[ennemy["type"]].append(child)
+					if t != "bonus":
+						enemy_dict[ennemy["type"]].append(child)
+					else:
+						var l = str(ennemy["level"])
+						child.beat_bonus = child.BONUS["level_" + l]
 					child.visible = false
 					$ENEMIES.add_child(child)
 					var pos = ennemy["position"]

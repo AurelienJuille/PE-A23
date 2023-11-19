@@ -5,6 +5,11 @@
 				{
 					"type": "flying",
 					"position": [0,0,0]
+				},
+				{
+					"type": "bonus",
+					"position": [1,0,0],
+					"level": 3
 				}
 			]
 		},
