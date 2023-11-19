@@ -55,4 +55,3 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 	else:
 		return false
 	
-	

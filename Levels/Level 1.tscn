@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b1ko4y8h7tgkd"]
+[gd_scene load_steps=41 format=3 uid="uid://b4aj0ifktgyw0"]
 
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_yyj0k"]
 [ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://ENEMIES/flying_enemy.tscn" id="2_g88fv"]
@@ -697,7 +697,7 @@ omni_attenuation = 3.86375
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_dk6gj")
-volume_db = -32.59
+volume_db = -25.715
 script = ExtResource("17_wfxvq")
 
 [node name="Timer" type="Timer" parent="MusicControl"]

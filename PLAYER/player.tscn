@@ -460,6 +460,7 @@ states/Attack_side/node = SubResource("AnimationNodeAnimation_acxgk")
 states/Attack_side/position = Vector2(958, 193)
 states/Crouch/node = SubResource("AnimationNodeAnimation_xonrt")
 states/Crouch/position = Vector2(634, 21)
+states/End/position = Vector2(901, 100)
 states/Idle/node = SubResource("AnimationNodeAnimation_fob3a")
 states/Idle/position = Vector2(332, 251)
 states/Jump_down/node = SubResource("AnimationNodeAnimation_8vycu")
@@ -470,10 +471,10 @@ states/Run/node = SubResource("AnimationNodeAnimation_tqv05")
 states/Run/position = Vector2(436, 129)
 states/Start/position = Vector2(182, 69)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_raal8"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_88o8y"), "Idle", "Jump_up", SubResource("AnimationNodeStateMachineTransition_kbn6y"), "Run", "Jump_up", SubResource("AnimationNodeStateMachineTransition_wk2s0"), "Jump_up", "Jump_down", SubResource("AnimationNodeStateMachineTransition_n2s0w"), "Jump_down", "Crouch", SubResource("AnimationNodeStateMachineTransition_5a0hr"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_cewer"), "Crouch", "Run", SubResource("AnimationNodeStateMachineTransition_mhdie"), "Crouch", "Idle", SubResource("AnimationNodeStateMachineTransition_xwn0j"), "Crouch", "Attack_side", SubResource("AnimationNodeStateMachineTransition_uaej1"), "Attack_side", "Crouch", SubResource("AnimationNodeStateMachineTransition_j48sk"), "Attack_side", "Jump_down", SubResource("AnimationNodeStateMachineTransition_od1tq"), "Jump_down", "Attack_side", SubResource("AnimationNodeStateMachineTransition_mgikl"), "Attack_side", "Jump_up", SubResource("AnimationNodeStateMachineTransition_5xfcx"), "Jump_up", "Attack_side", SubResource("AnimationNodeStateMachineTransition_cqy3v"), "Attack_side", "Run", SubResource("AnimationNodeStateMachineTransition_gjypn"), "Run", "Attack_side", SubResource("AnimationNodeStateMachineTransition_jk2jh"), "Attack_side", "Idle", SubResource("AnimationNodeStateMachineTransition_math8"), "Idle", "Attack_side", SubResource("AnimationNodeStateMachineTransition_jogsp")]
-graph_offset = Vector2(-16, -32)
+graph_offset = Vector2(-28, 18)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttvtw"]
-size = Vector3(0.151078, 0.281942, 0.223247)
+size = Vector3(0.118001, 0.281942, 0.108191)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_76pgj"]
 dof_blur_far_enabled = true
@@ -484,7 +485,7 @@ dof_blur_near_distance = 1.97
 dof_blur_near_transition = 3.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8e1y"]
-size = Vector3(0.457, 0.3, 0.151)
+size = Vector3(0.666794, 0.3, 0.151)
 
 [node name="PLAYER" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_0jlmp")
@@ -558,7 +559,7 @@ texture = ExtResource("3_skqa7")
 [node name="Slash_Area" type="Area3D" parent="Slash"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slash/Slash_Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167344, 0.03, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263386, 0.03, 0)
 shape = SubResource("BoxShape3D_u8e1y")
 
 [connection signal="area_entered" from="Slash/Slash_Area" to="." method="_on_slash_area_area_entered"]

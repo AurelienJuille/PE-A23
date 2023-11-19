@@ -20,7 +20,7 @@ func set_variables() -> void:
 @export var time_to_stop := .1
 var is_jumping : bool
 
-var dash_force = 10.0
+var dash_force = 5.0
 var dash_timer_duration = .2
 var dash_timer = .0
 var dash_cooldown_duration = .5
