@@ -343,14 +343,14 @@ environment = SubResource("Environment_wjck8")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_qedfm")
-volume_db = -80.0
+volume_db = -20.973
 script = ExtResource("18_fcbba")
 
 [node name="StartTimer" type="Timer" parent="MusicControl"]
 
 [node name="Test sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_1db6h")
-volume_db = -80.0
+volume_db = -27.961
 script = ExtResource("20_vxhpo")
 
 [node name="GAMETIMER" parent="." groups=["Enemies"] instance=ExtResource("21_s2icx")]

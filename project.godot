@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LE JEU"
-run/main_scene="res://Scenes/Graphic_room.tscn"
+run/main_scene="res://Levels/Level 1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Textures/icon.svg"
 
