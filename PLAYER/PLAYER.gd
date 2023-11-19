@@ -134,6 +134,7 @@ var dash_dir
 func handle_dash(_delta):
 	if dash_cooldown <= 0:
 		if Input.is_action_just_pressed("DASH"):
+			#DASH MECANIC
 			var position2D = get_viewport().get_mouse_position()
 			var dropPlane  = Plane(Vector3(0, 0, 1), 0)
 			var position3D = dropPlane.intersects_ray($Camera3D.project_ray_origin(position2D),$Camera3D.project_ray_normal(position2D))
@@ -141,12 +142,12 @@ func handle_dash(_delta):
 			dash_timer = dash_timer_duration
 			dash_cooldown = dash_cooldown_duration
 			
+			#SLASH ANIMATION
 			$Slash.rotation = Vector3.ZERO
 			var angle = dash_dir.angle_to(Vector3(1,0,0))
 			if dash_dir.y <= 0:
 				angle = 2 * PI - angle
 			$Slash.rotate(Vector3(0,0,1), angle)
-			
 			$Slash/Slash_Sprite.flip_v = dash_dir.x < 0
 	elif dash_timer > 0:
 		var speed = (dash_timer / dash_timer_duration) * dash_force
@@ -154,14 +155,19 @@ func handle_dash(_delta):
 
 
 func die():
-#	self.visible = false
-	print("You Lost")
 	get_tree().reload_current_scene()
 	get_node("/root/TEST ROOM/MusicControl").stop()
 
 
-func _on_area_3d_area_entered(area):
-	if area.get_parent().is_in_group("Enemies"):
-		die()
+# SLASH HIT
+func _on_slash_area_area_entered(area):
+	call_deferred("slash_hit", area)
+
+
+func slash_hit(area):
+	if area.get_parent().is_in_group("Enemies") and area.get_parent().has_method("get_hit"):
+		if dash_timer > .0:
+			area.get_parent().get_hit()
+
 
 

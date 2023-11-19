@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bmsfvkhij0unq"]
+[gd_scene load_steps=40 format=3 uid="uid://bmsfvkhij0unq"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_0jlmp"]
 [ext_resource type="Texture2D" uid="uid://bprgywrpk7e8w" path="res://PLAYER/Character.png" id="2_yu6ka"]
@@ -483,6 +483,9 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 1.97
 dof_blur_near_transition = 3.2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8e1y"]
+size = Vector3(0.457, 0.3, 0.151)
+
 [node name="PLAYER" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_0jlmp")
 
@@ -549,6 +552,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
 
 [node name="Slash_Sprite" type="Sprite3D" parent="Slash"]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 1.86265e-09, 0, 0, 0.08, 0.0385057, 0.0250537, 0.050032)
+alpha_cut = 2
 texture = ExtResource("3_skqa7")
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[node name="Slash_Area" type="Area3D" parent="Slash"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slash/Slash_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167344, 0.03, 0)
+shape = SubResource("BoxShape3D_u8e1y")
+
+[connection signal="area_entered" from="Slash/Slash_Area" to="." method="_on_slash_area_area_entered"]

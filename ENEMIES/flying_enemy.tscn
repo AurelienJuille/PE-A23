@@ -334,8 +334,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ob8gr"]
-length = 0.03
-loop_mode = 1
+length = 0.18
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -391,10 +390,10 @@ tracks/4/path = NodePath("../MeshInstance3D/Sprite3D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [7]
+"values": [7, 7, 7, 7, 7, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cgli0"]
@@ -407,7 +406,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_qmnwd"]
 size = Vector3(0.137106, 0.0616976, 0.163739)
 
-[node name="Flying Enemy" type="CharacterBody3D"]
+[node name="Flying Enemy" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_k6whu")
 interpolation = SubResource("Curve_8esgc")
 
@@ -427,7 +426,7 @@ texture_filter = 0
 texture = ExtResource("2_s5c6x")
 hframes = 3
 vframes = 3
-frame = 3
+frame = 7
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",

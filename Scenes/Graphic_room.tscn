@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cumoos2igrugl"]
+[gd_scene load_steps=39 format=3 uid="uid://cumoos2igrugl"]
 
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_ycj8b"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cf4fdvq53hm2o" path="res://Textures/bump/floor_bump.png" id="11_s0eyi"]
 [ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="12_butpa"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/albedo/une caisse.png" id="14_askw3"]
+[ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://ENEMIES/flying_enemy.tscn" id="15_v1xlu"]
 [ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Music/Test Music.mp3" id="17_qedfm"]
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_fcbba"]
 [ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/Music/VEDH Percussion 026.wav" id="19_1db6h"]
@@ -293,6 +294,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106845, 0, 0.0138512)
 
 [node name="ENEMIES" type="Node3D" parent="."]
 
+[node name="Flying Enemy" parent="ENEMIES" instance=ExtResource("15_v1xlu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.256599, 0)
+
+[node name="COLLECTIBLES" type="Node3D" parent="."]
+script = ExtResource("22_rv1cd")
+bonus_scene = ExtResource("22_raver")
+
 [node name="LIGHTS" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.464452, 0.844931)
 
@@ -342,14 +350,10 @@ script = ExtResource("18_fcbba")
 
 [node name="Test sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_1db6h")
-volume_db = -26.237
+volume_db = -80.0
 script = ExtResource("20_vxhpo")
 
 [node name="GAMETIMER" parent="." groups=["Enemies"] instance=ExtResource("21_s2icx")]
-
-[node name="COLLECTIBLES" type="Node3D" parent="."]
-script = ExtResource("22_rv1cd")
-bonus_scene = ExtResource("22_raver")
 
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
 [connection signal="timeout" from="MusicControl/StartTimer" to="MusicControl" method="_on_start_timer_timeout"]
