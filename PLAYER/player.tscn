@@ -485,7 +485,7 @@ dof_blur_near_distance = 1.97
 dof_blur_near_transition = 3.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8e1y"]
-size = Vector3(0.666794, 0.3, 0.151)
+size = Vector3(0.455355, 0.3, 0.151)
 
 [node name="PLAYER" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_0jlmp")
@@ -559,7 +559,7 @@ texture = ExtResource("3_skqa7")
 [node name="Slash_Area" type="Area3D" parent="Slash"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slash/Slash_Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263386, 0.03, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.164336, 0.03, 0)
 shape = SubResource("BoxShape3D_u8e1y")
 
 [connection signal="area_entered" from="Slash/Slash_Area" to="." method="_on_slash_area_area_entered"]

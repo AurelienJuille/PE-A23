@@ -134,6 +134,7 @@ var dash_dir
 func handle_dash():
 	if dash_cooldown <= 0:
 		if Input.is_action_just_pressed("DASH"):
+			$Slash/Slash_Area.monitoring = true
 			#DASH MECANIC
 			var position2D = get_viewport().get_mouse_position()
 			var dropPlane  = Plane(Vector3(0, 0, 1), 0)
@@ -152,6 +153,8 @@ func handle_dash():
 	elif dash_timer > 0:
 		var speed = (dash_timer / dash_timer_duration) * dash_force
 		velocity = dash_dir * speed
+	else:
+		$Slash/Slash_Area.monitoring = false
 
 
 func die():
@@ -161,14 +164,13 @@ func die():
 
 # SLASH HIT
 func _on_slash_area_area_entered(area):
-	call_deferred("slash_hit", area)
+	if area.get_parent().is_in_group("Enemies") and area.get_parent().has_method("get_hit"):
+		area.get_parent().get_hit()
 
 
 func slash_hit(area):
 	handle_dash()
-	if area.get_parent().is_in_group("Enemies") and area.get_parent().has_method("get_hit"):
-		if dash_timer > .0:
-			area.get_parent().get_hit()
+	
 
 
 
