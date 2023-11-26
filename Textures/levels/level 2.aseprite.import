@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://da6bxi350nh7m"
+path="res://.godot/imported/level 2.aseprite-6ddde1c04042d45a5b3323ca105894fd.res"
+
+[deps]
+
+source_file="res://Textures/levels/level 2.aseprite"
+dest_files=["res://.godot/imported/level 2.aseprite-6ddde1c04042d45a5b3323ca105894fd.res"]
+
+[params]
+
