@@ -623,25 +623,21 @@ transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, -6.83027, 0.875052, 
 transform = Transform3D(-0.0813173, 0, 0.0813173, 0, 0.115, 0, -0.0813173, 0, -0.0813173, 3.045, 0.987, -2.7549)
 material_override = SubResource("StandardMaterial3D_jcyxg")
 mesh = ExtResource("15_qvw6p")
-skeleton = NodePath("../../../../..")
 
 [node name="Shop-3-car6" type="MeshInstance3D" parent="ENVIRONMENT/Background"]
 transform = Transform3D(0.0127132, 0, -0.114295, 0, 0.115, 0, 0.114295, 0, 0.0127132, 2.76898, 0.987, -0.922907)
 material_override = SubResource("StandardMaterial3D_cms4e")
 mesh = SubResource("ArrayMesh_uaelw")
-skeleton = NodePath("../../../../..")
 
 [node name="Shop-3-car7" type="MeshInstance3D" parent="ENVIRONMENT/Background"]
 transform = Transform3D(-0.0852329, -0.0222247, -0.0739353, -0.0167885, 0.112832, -0.0145632, 0.0753559, -6.40878e-10, -0.0868706, -4.03258, -0.0134484, 1.22645)
 material_override = SubResource("StandardMaterial3D_cms4e")
 mesh = SubResource("ArrayMesh_uaelw")
-skeleton = NodePath("../../../../..")
 
 [node name="Shop-3-car8" type="MeshInstance3D" parent="ENVIRONMENT/Background"]
 transform = Transform3D(-0.0813173, 0, 0.0813173, 0, 0.115, 0, -0.0813173, 0, -0.0813173, -3.17298, 0.0339412, 1.23295)
 material_override = SubResource("StandardMaterial3D_jcyxg")
 mesh = ExtResource("15_qvw6p")
-skeleton = NodePath("../../../../..")
 
 [node name="floor3" parent="ENVIRONMENT/Background" instance=ExtResource("9_e42xt")]
 transform = Transform3D(2.33728e-08, 0, -3.01, 0, 1.45, 0, 1.96, 0, 3.58939e-08, 2.98774, 0.828071, -10.8469)

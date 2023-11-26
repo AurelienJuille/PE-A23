@@ -168,7 +168,7 @@ func _on_slash_area_area_entered(area):
 		area.get_parent().get_hit()
 
 
-func slash_hit(area):
+func slash_hit(_area):
 	handle_dash()
 	
 
