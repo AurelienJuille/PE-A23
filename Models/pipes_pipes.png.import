@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0302inu1ikr"
-path="res://.godot/imported/level 2T_level.png-1322f5fc8c19c216ff657b4b8be78334.ctex"
+uid="uid://bba1oll15sc0r"
+path="res://.godot/imported/pipes_pipes.png-2735974a62283a5e4b92bee9210ccf3a.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/level 2T_level.png"
-dest_files=["res://.godot/imported/level 2T_level.png-1322f5fc8c19c216ff657b4b8be78334.ctex"]
+source_file="res://Models/pipes_pipes.png"
+dest_files=["res://.godot/imported/pipes_pipes.png-2735974a62283a5e4b92bee9210ccf3a.ctex"]
 
 [params]
 
