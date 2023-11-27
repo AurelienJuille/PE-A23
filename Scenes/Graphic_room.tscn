@@ -600,6 +600,8 @@ volumetric_fog_gi_inject = 4.0
 [node name="TEST ROOM" type="Node3D"]
 script = ExtResource("1_ycj8b")
 json_file_path = "res://Levels/test_level.json"
+next_level_file_path = "res://Levels/Level 1.tscn"
+bonus_scene = ExtResource("22_raver")
 flying_enemy_scene = ExtResource("15_v1xlu")
 
 [node name="PLAYER" parent="." instance=ExtResource("12_butpa")]

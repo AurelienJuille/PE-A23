@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ENEMIES/flying_enemy.gd" id="1_k6whu"]
 [ext_resource type="Texture2D" uid="uid://bbenu154gcyfr" path="res://ENEMIES/Drone.png" id="2_s5c6x"]
-[ext_resource type="AudioStream" uid="uid://cpmrs1d0cl17j" path="res://Audio/SFX/break_drone.mp3" id="3_pjw75"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/break_drone.mp3" id="3_pjw75"]
 
 [sub_resource type="Curve" id="Curve_8esgc"]
 min_value = -1.0
