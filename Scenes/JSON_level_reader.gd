@@ -6,7 +6,7 @@ var content
 var file_read = false
 var last_beat_executed : String
 
-# ENEMIES TO SPAWN
+# ENEMIES TO SPAWN 
 @export var bonus_scene: PackedScene
 @export var flying_enemy_scene: PackedScene
 var enemy_dict = {
