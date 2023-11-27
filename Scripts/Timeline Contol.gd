@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
-@export var bpm : float = 160
+@export var bpm : float
 var measures : int = 4
-var secondsPerBeat := 60/bpm
+var secondsPerBeat : float
 ## jai regardé ce tuto https://www.youtube.com/watch?v=_FRiPPbJsFQ 
 ##je comprends pas tout mais c'etiat super utile
 ## TO-DO : faire les demi-beats  / quad
@@ -24,6 +24,7 @@ signal currentSubBeatSignal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	secondsPerBeat = 60/bpm
 	GLOBAL.MUSIC_CONTROL = self
 	get_tree().call_group("Enemies", "init")
 	play()
