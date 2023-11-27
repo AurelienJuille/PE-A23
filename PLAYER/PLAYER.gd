@@ -131,6 +131,8 @@ var dash_dir
 func handle_dash():
 	if dash_cooldown <= 0:
 		if Input.is_action_just_pressed("DASH"):
+			$whoosh_sound.pitch_scale = randf_range(.9,1.1)
+			$whoosh_sound.play()
 			$Slash/Slash_Area.monitoring = true
 			#DASH MECANIC
 			var position2D = get_viewport().get_mouse_position()

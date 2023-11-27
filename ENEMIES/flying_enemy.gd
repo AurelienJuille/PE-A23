@@ -56,5 +56,6 @@ func get_hit():
 	if HP <= 0:
 		dead = true
 		$AnimationPlayerSprite.play("crash")
+		$crash_sound.play()
 		await $AnimationPlayerSprite.animation_finished
 		queue_free()
