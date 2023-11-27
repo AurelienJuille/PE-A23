@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cumoos2igrugl"]
+[gd_scene load_steps=56 format=3 uid="uid://cumoos2igrugl"]
 
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_ycj8b"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="12_butpa"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/albedo/une caisse.png" id="14_askw3"]
 [ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://ENEMIES/flying_enemy.tscn" id="15_v1xlu"]
+[ext_resource type="Script" path="res://ENEMIES/flying_enemy.gd" id="16_nvjji"]
+[ext_resource type="Texture2D" uid="uid://bbenu154gcyfr" path="res://ENEMIES/Drone.png" id="17_06xjl"]
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_fcbba"]
 [ext_resource type="AudioStream" uid="uid://ctssuqhn81fd8" path="res://Audio/Music/onlymp3.to - Swan Bones thu-iqTwWaDvTHY-192k-1701046113.mp3" id="18_rwhv5"]
 [ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/Music/VEDH Percussion 026.wav" id="19_1db6h"]
@@ -22,6 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://bth4rmiyrhogj" path="res://Scenes/gametimer.tscn" id="21_s2icx"]
 [ext_resource type="PackedScene" uid="uid://djdglvv63pfn2" path="res://Scenes/collectible.tscn" id="22_raver"]
 [ext_resource type="Script" path="res://Scenes/COLLECTIBLES.gd" id="22_rv1cd"]
+[ext_resource type="Texture2D" uid="uid://bi0ffrfpq4i7b" path="res://Textures/tuto1.png" id="23_towtj"]
+[ext_resource type="Texture2D" uid="uid://d00gjkbyb65xs" path="res://Textures/tuto2.png" id="26_m72c7"]
+[ext_resource type="Script" path="res://Scenes/quit_tuto.gd" id="27_df7jo"]
+[ext_resource type="Texture2D" uid="uid://b7cm0vdpb7gwj" path="res://Textures/tuto3.png" id="27_dojh5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkdth"]
 transparency = 1
@@ -155,6 +161,409 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_q5xk8")
 size = Vector3(0.16, 0.16, 0.16)
 
+[sub_resource type="Curve" id="Curve_8esgc"]
+min_value = -1.0
+_data = [Vector2(0, 0.0105263), 0.0, -3.15903, 0, 0, Vector2(0.0835821, -0.136842), 0.0, 0.0, 0, 0, Vector2(0.164, 0), 4.34896, 0.0, 0, 1, Vector2(0.496, 0), -0.208721, -0.208721, 0, 0, Vector2(0.5, 1), -4.46409, -4.46409, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ntg0f"]
+size = Vector3(0.161301, 0.0810536, 0.163739)
+
+[sub_resource type="Animation" id="Animation_o5nyt"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.682353, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:mesh:material:albedo_color:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.407843, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MeshInstance3D:mesh:material:albedo_color:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MeshInstance3D:mesh:material:albedo_color:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MeshInstance3D:mesh:material:emission:r")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.780392, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MeshInstance3D:mesh:material:emission:g")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MeshInstance3D:mesh:material:emission:b")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MeshInstance3D:mesh:material:emission:a")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_itmu8"]
+resource_name = "charge"
+step = 0.0166667
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.0333333, 0.00148107, 0.0117159, 0, 0, 0, 0, -0.0094476, 0, 0, 0, 0, 0.00943596, 0, 0, 0, 0, -0.00959629, 0, 0, 0, 0, 0.00804819, 0, 0, 0, 0, -0.00939804, 0, 0, 0, 0, 0.00913858, 0, 0, 0, 0, -0.00979455, 0, 0, 0, 0, 0.00928727, 0, 0, 0, 0, -0.0096896, 0, 0, 0, 0, 0.00869251, 0, 0, 0, 0, -0.0096896, 0, 0, 0, 0, 0.00735431, 0, 0, 0, 0, -0.0096896, 0, 0, 0, 0, 0.0092377, 0, 0, 0, 0, -0.00934848, 0, 0, 0, 0, 0.00973334, 0, 0, 0, 0, -0.00919979, 0, 0, 0, 0, 0.00943596, 0, 0, 0, 0, 0.00943596, 0, 0, 0, 0, -0.00471432, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.0835, 0.1169, 0.1837, 0.2338, 0.2672, 0.3173, 0.3674, 0.3841, 0.4175, 0.4509, 0.4676, 0.4843, 0.5344, 0.5678, 0.5845, 0.6346, 0.668, 0.7181, 0.7682, 0.835, 0.9185)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.682353, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:mesh:material:albedo_color:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.768627, -0.25, 0, 0.25, 0, 0.407843, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MeshInstance3D:mesh:material:albedo_color:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.886275, -0.25, 0, 0.25, 0, -0.00510501, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.9686)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MeshInstance3D:mesh:material:albedo_color:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MeshInstance3D:mesh:material:emission:r")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.941176, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MeshInstance3D:mesh:material:emission:g")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.47451, -0.25, 0, 0.25, 0, -0.00510501, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.9686)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MeshInstance3D:mesh:material:emission:b")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.454902, -0.25, 0, 0.25, 0, 0.282353, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MeshInstance3D:mesh:material:emission:a")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ymkeq"]
+_data = {
+"RESET": SubResource("Animation_o5nyt"),
+"charge": SubResource("Animation_itmu8")
+}
+
+[sub_resource type="Animation" id="Animation_bbpr7"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_vu36p"]
+length = 0.21
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MeshInstance3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_06xjl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeshInstance3D/Sprite3D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MeshInstance3D/Sprite3D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MeshInstance3D/Sprite3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MeshInstance3D/Sprite3D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_ob8gr"]
+length = 0.18
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MeshInstance3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_06xjl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeshInstance3D/Sprite3D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MeshInstance3D/Sprite3D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MeshInstance3D/Sprite3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MeshInstance3D/Sprite3D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 7, 7, 7, 7, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgli0"]
+_data = {
+"RESET": SubResource("Animation_bbpr7"),
+"animation": SubResource("Animation_vu36p"),
+"crash": SubResource("Animation_ob8gr")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qmnwd"]
+size = Vector3(0.137106, 0.0616976, 0.163739)
+
 [sub_resource type="Environment" id="Environment_wjck8"]
 reflected_light_source = 2
 tonemap_mode = 1
@@ -186,13 +595,15 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission_energy = 35.7
 volumetric_fog_gi_inject = 4.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7k8g2"]
+
 [node name="TEST ROOM" type="Node3D"]
 script = ExtResource("1_ycj8b")
 json_file_path = "res://Levels/test_level.json"
 flying_enemy_scene = ExtResource("15_v1xlu")
 
 [node name="PLAYER" parent="." instance=ExtResource("12_butpa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57397, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70556, 0, 0)
 
 [node name="ENVIRONMENT" type="Node3D" parent="."]
 
@@ -278,7 +689,7 @@ shape = SubResource("ConcavePolygonShape3D_4v6q3")
 [node name="OBSTACLES" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OBSTACLES"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313863, -0.38075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74901, -0.38075, 0)
 mesh = SubResource("PrismMesh_7di48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OBSTACLES/MeshInstance3D"]
@@ -287,7 +698,7 @@ mesh = SubResource("PrismMesh_7di48")
 shape = SubResource("ConcavePolygonShape3D_7ybe0")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="OBSTACLES"]
-transform = Transform3D(0.903043, 0, 0.429549, 0, 1, 0, -0.429549, 0, 0.903043, -2.03598, 0.0827749, 1.08661)
+transform = Transform3D(0.903043, 0, 0.429549, 0, 1, 0, -0.429549, 0, 0.903043, -1.37132, 0.0827749, 1.08661)
 mesh = SubResource("BoxMesh_12anu")
 
 [node name="EnemyOBSTACLES" type="Node3D" parent="." groups=["Enemies"]]
@@ -295,8 +706,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106845, 0, 0.0138512)
 
 [node name="ENEMIES" type="Node3D" parent="."]
 
-[node name="Flying Enemy" parent="ENEMIES" instance=ExtResource("15_v1xlu")]
+[node name="Flying Enemy" type="CharacterBody3D" parent="ENEMIES" groups=["Enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.256599, 0)
+script = ExtResource("16_nvjji")
+interpolation = SubResource("Curve_8esgc")
+
+[node name="Area3D" type="Area3D" parent="ENEMIES/Flying Enemy"]
+disable_mode = 1
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ENEMIES/Flying Enemy/Area3D"]
+shape = SubResource("BoxShape3D_ntg0f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ENEMIES/Flying Enemy"]
+transform = Transform3D(0.113234, 0, 0, 0, 0.113234, 0, 0, 0, 0.113234, 0, 0, 0)
+layers = 3
+
+[node name="Sprite3D" type="Sprite3D" parent="ENEMIES/Flying Enemy/MeshInstance3D"]
+transform = Transform3D(8.83127, 0, 0, 0, 8.83127, 0, 0, 0, 8.83127, 0, 0.0416334, 0)
+texture_filter = 0
+texture = ExtResource("17_06xjl")
+hframes = 3
+vframes = 3
+frame = 7
+metadata/_aseprite_wizard_config_ = {
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "AnimationPlayerSprite",
+"source": "res://ENEMIES/Drone.aseprite"
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ENEMIES/Flying Enemy"]
+libraries = {
+"": SubResource("AnimationLibrary_ymkeq")
+}
+
+[node name="AnimationPlayerSprite" type="AnimationPlayer" parent="ENEMIES/Flying Enemy"]
+root_node = NodePath("../AnimationPlayer")
+autoplay = "animation"
+libraries = {
+"": SubResource("AnimationLibrary_cgli0")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ENEMIES/Flying Enemy"]
+shape = SubResource("BoxShape3D_qmnwd")
+disabled = true
 
 [node name="COLLECTIBLES" type="Node3D" parent="."]
 script = ExtResource("22_rv1cd")
@@ -344,7 +802,6 @@ environment = SubResource("Environment_wjck8")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_rwhv5")
-volume_db = 24.0
 script = ExtResource("18_fcbba")
 
 [node name="StartTimer" type="Timer" parent="MusicControl"]
@@ -356,5 +813,31 @@ script = ExtResource("20_vxhpo")
 
 [node name="GAMETIMER" parent="." groups=["Enemies"] instance=ExtResource("21_s2icx")]
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74129, 0.58287, 0)
+pixel_size = 0.005
+texture = ExtResource("23_towtj")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0195693, 0.58287, 0)
+pixel_size = 0.005
+texture = ExtResource("26_m72c7")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61625, 0, 0)
+script = ExtResource("27_df7jo")
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540948, 0)
+pixel_size = 0.005
+texture = ExtResource("27_dojh5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189692, 0)
+shape = SubResource("BoxShape3D_7k8g2")
+
+[connection signal="body_entered" from="ENEMIES/Flying Enemy/Area3D" to="ENEMIES/Flying Enemy" method="_on_area_3d_body_entered" flags=18]
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
 [connection signal="timeout" from="MusicControl/StartTimer" to="MusicControl" method="_on_start_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
