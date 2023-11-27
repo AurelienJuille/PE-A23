@@ -1,5 +1,5 @@
 extends AudioStreamPlayer
-@export var bpm : float
+@export var bpm : float = 160
 var measures : int = 4
 var secondsPerBeat := 60/bpm
 ## jai regardé ce tuto https://www.youtube.com/watch?v=_FRiPPbJsFQ 

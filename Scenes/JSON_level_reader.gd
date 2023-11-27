@@ -1,6 +1,7 @@
 extends Node3D
 
 @export_file("*json") var json_file_path
+@export_file("*tscn") var next_level_file_path
 var content
 var file_read = false
 var last_beat_executed : String
@@ -29,6 +30,8 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 		if content.has(beat) and beat != last_beat_executed:
 			last_beat_executed = beat
 			var info = content[beat]
+			if info.has("end"):
+				get_tree().change_scene_to_file(next_level_file_path)
 			if info.has("spawn"):
 				for ennemy in info["spawn"]:
 					var t = str(ennemy["type"])

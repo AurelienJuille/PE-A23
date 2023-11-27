@@ -33,6 +33,7 @@ var dash_cooldown = .0
 var STATE_MACHINE
 
 func _ready():
+	$Slash/Slash_Area.monitoring = false
 	set_variables()
 	GLOBAL.PLAYER = self
 	STATE_MACHINE = animation_tree.get("parameters/playback")
@@ -104,10 +105,6 @@ func handle_jump():
 	elif not Input.is_action_pressed("JUMP") and is_jumping and $HollowKnightJumpTimer.time_left == .0 and velocity.y > 0:
 		velocity.y *= .3
 		is_jumping = false
-	
-	# Dash downward
-	if Input.is_action_just_pressed("JUMP") and not is_on_floor():
-		velocity.y = -max_fall_speed
 
 
 func handle_run(delta):
@@ -158,8 +155,7 @@ func handle_dash():
 
 
 func die():
-	get_tree().reload_current_scene()
-# 	get_node("/root/TEST ROOM/MusicControl").stop()
+	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
 
 
 # SLASH HIT
