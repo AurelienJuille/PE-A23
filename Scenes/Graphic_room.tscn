@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bmsfvkhij0unq" path="res://PLAYER/player.tscn" id="12_butpa"]
 [ext_resource type="Texture2D" uid="uid://d380sp35a2t1r" path="res://Textures/albedo/une caisse.png" id="14_askw3"]
 [ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://ENEMIES/flying_enemy.tscn" id="15_v1xlu"]
-[ext_resource type="AudioStream" uid="uid://b8e8bkn0s8pvd" path="res://Audio/Music/Test Music.mp3" id="17_qedfm"]
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_fcbba"]
+[ext_resource type="AudioStream" uid="uid://ctssuqhn81fd8" path="res://Audio/Music/onlymp3.to - Swan Bones thu-iqTwWaDvTHY-192k-1701046113.mp3" id="18_rwhv5"]
 [ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/Music/VEDH Percussion 026.wav" id="19_1db6h"]
 [ext_resource type="Script" path="res://Scripts/tick.gd" id="20_vxhpo"]
 [ext_resource type="PackedScene" uid="uid://bth4rmiyrhogj" path="res://Scenes/gametimer.tscn" id="21_s2icx"]
@@ -343,8 +343,8 @@ omni_attenuation = 3.86374
 environment = SubResource("Environment_wjck8")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_qedfm")
-volume_db = -20.973
+stream = ExtResource("18_rwhv5")
+volume_db = 24.0
 script = ExtResource("18_fcbba")
 
 [node name="StartTimer" type="Timer" parent="MusicControl"]

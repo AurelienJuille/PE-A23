@@ -696,6 +696,7 @@ omni_attenuation = 3.86375
 stream = ExtResource("16_dk6gj")
 volume_db = -20.613
 script = ExtResource("17_wfxvq")
+bpm = 160.0
 
 [node name="Timer" type="Timer" parent="MusicControl"]
 
