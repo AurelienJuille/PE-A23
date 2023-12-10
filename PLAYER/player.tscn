@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_0jlmp"]
 [ext_resource type="Texture2D" uid="uid://bprgywrpk7e8w" path="res://PLAYER/Character.png" id="2_yu6ka"]
 [ext_resource type="Texture2D" uid="uid://bw2kph7hvmwmb" path="res://PLAYER/slash.png" id="3_skqa7"]
-[ext_resource type="AudioStream" uid="uid://bresjyvdx6a2t" path="res://Audio/SFX/whoosh1.mp3" id="4_1w1ve"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/whoosh1.mp3" id="4_1w1ve"]
 
 [sub_resource type="Animation" id="Animation_4e5d3"]
 length = 0.14
