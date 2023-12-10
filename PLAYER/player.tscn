@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://bmsfvkhij0unq"]
+[gd_scene load_steps=42 format=3 uid="uid://bmsfvkhij0unq"]
 
 [ext_resource type="Script" path="res://PLAYER/PLAYER.gd" id="1_0jlmp"]
+[ext_resource type="PackedScene" uid="uid://chnihrpkkgbo7" path="res://Models/arrow.glb" id="2_x0wsb"]
 [ext_resource type="Texture2D" uid="uid://bprgywrpk7e8w" path="res://PLAYER/Character.png" id="2_yu6ka"]
 [ext_resource type="Texture2D" uid="uid://bw2kph7hvmwmb" path="res://PLAYER/slash.png" id="3_skqa7"]
-[ext_resource type="AudioStream" path="res://Audio/SFX/whoosh1.mp3" id="4_1w1ve"]
+[ext_resource type="AudioStream" uid="uid://bresjyvdx6a2t" path="res://Audio/SFX/whoosh1.mp3" id="4_1w1ve"]
 
 [sub_resource type="Animation" id="Animation_4e5d3"]
 length = 0.14
@@ -490,6 +491,10 @@ size = Vector3(0.455355, 0.3, 0.151)
 
 [node name="PLAYER" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_0jlmp")
+
+[node name="arrow" parent="." instance=ExtResource("2_x0wsb")]
+transform = Transform3D(-1.28843e-08, -2.52878e-16, 0.294759, 0.294759, -7.45058e-09, 1.28843e-08, 7.45058e-09, 0.294759, 4.44089e-16, 1.50799, 0, 0)
+metadata/arrow = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
