@@ -157,7 +157,8 @@ func handle_dash():
 
 
 func die():
-	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/start_menu.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
 
 
 # SLASH HIT

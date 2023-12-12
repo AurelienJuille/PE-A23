@@ -6,260 +6,18 @@
 
 [sub_resource type="Curve" id="Curve_8esgc"]
 min_value = -1.0
-_data = [Vector2(0, 0.0105263), 0.0, -3.15903, 0, 0, Vector2(0.0835821, -0.136842), 0.0, 0.0, 0, 0, Vector2(0.164, 0), 4.34896, 0.0, 0, 1, Vector2(0.496, 0), -0.208721, -0.208721, 0, 0, Vector2(0.5, 1), -4.46409, -4.46409, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 6
+_data = [Vector2(0, 0.0105263), 0.0, -3.15903, 0, 0, Vector2(0.246377, -0.203063), 0.0, 0.0, 0, 0, Vector2(0.503623, 0.00466049), 0.807487, 5.19308, 1, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ntg0f"]
 size = Vector3(0.161301, 0.0810536, 0.163739)
 
 [sub_resource type="Animation" id="Animation_o5nyt"]
 length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance3D:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color:r")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.682353, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeshInstance3D:mesh:material:albedo_color:g")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.407843, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MeshInstance3D:mesh:material:albedo_color:b")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MeshInstance3D:mesh:material:albedo_color:a")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MeshInstance3D:mesh:material:emission:r")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.780392, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("MeshInstance3D:mesh:material:emission:g")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("MeshInstance3D:mesh:material:emission:b")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("MeshInstance3D:mesh:material:emission:a")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
 
 [sub_resource type="Animation" id="Animation_itmu8"]
 resource_name = "charge"
 step = 0.0166667
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.0333333, 0.00148107, 0.0117159, 0, 0, 0, 0, -0.0094476, 0, 0, 0, 0, 0.00943596, 0, 0, 0, 0, -0.00959629, 0, 0, 0, 0, 0.00804819, 0, 0, 0, 0, -0.00939804, 0, 0, 0, 0, 0.00913858, 0, 0, 0, 0, -0.00979455, 0, 0, 0, 0, 0.00928727, 0, 0, 0, 0, -0.0096896, 0, 0, 0, 0, 0.00869251, 0, 0, 0, 0, -0.0096896, 0, 0, 0, 0, 0.00735431, 0, 0, 0, 0, -0.0096896, 0, 0, 0, 0, 0.0092377, 0, 0, 0, 0, -0.00934848, 0, 0, 0, 0, 0.00973334, 0, 0, 0, 0, -0.00919979, 0, 0, 0, 0, 0.00943596, 0, 0, 0, 0, 0.00943596, 0, 0, 0, 0, -0.00471432, 0, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.0835, 0.1169, 0.1837, 0.2338, 0.2672, 0.3173, 0.3674, 0.3841, 0.4175, 0.4509, 0.4676, 0.4843, 0.5344, 0.5678, 0.5845, 0.6346, 0.668, 0.7181, 0.7682, 0.835, 0.9185)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance3D:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color:r")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.682353, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeshInstance3D:mesh:material:albedo_color:g")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.768627, -0.25, 0, 0.25, 0, 0.407843, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MeshInstance3D:mesh:material:albedo_color:b")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.886275, -0.25, 0, 0.25, 0, -0.00510501, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.9686)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MeshInstance3D:mesh:material:albedo_color:a")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MeshInstance3D:mesh:material:emission:r")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.941176, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("MeshInstance3D:mesh:material:emission:g")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.47451, -0.25, 0, 0.25, 0, -0.00510501, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.9686)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("MeshInstance3D:mesh:material:emission:b")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.454902, -0.25, 0, 0.25, 0, 0.282353, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667)
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("MeshInstance3D:mesh:material:emission:a")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ymkeq"]
 _data = {
@@ -276,7 +34,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../MeshInstance3D/Sprite3D:texture")
+tracks/0/path = NodePath("../Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -288,7 +46,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../MeshInstance3D/Sprite3D:hframes")
+tracks/1/path = NodePath("../Sprite3D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -300,7 +58,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../MeshInstance3D/Sprite3D:vframes")
+tracks/2/path = NodePath("../Sprite3D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
@@ -312,7 +70,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../MeshInstance3D/Sprite3D:visible")
+tracks/3/path = NodePath("../Sprite3D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
@@ -324,7 +82,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../MeshInstance3D/Sprite3D:frame")
+tracks/4/path = NodePath("../Sprite3D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
@@ -339,7 +97,7 @@ length = 0.18
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../MeshInstance3D/Sprite3D:texture")
+tracks/0/path = NodePath("../Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -351,7 +109,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../MeshInstance3D/Sprite3D:hframes")
+tracks/1/path = NodePath("../Sprite3D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -363,7 +121,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../MeshInstance3D/Sprite3D:vframes")
+tracks/2/path = NodePath("../Sprite3D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
@@ -375,7 +133,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../MeshInstance3D/Sprite3D:visible")
+tracks/3/path = NodePath("../Sprite3D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
@@ -387,7 +145,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../MeshInstance3D/Sprite3D:frame")
+tracks/4/path = NodePath("../Sprite3D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
@@ -408,6 +166,7 @@ _data = {
 size = Vector3(0.137106, 0.0616976, 0.163739)
 
 [node name="Flying Enemy" type="CharacterBody3D" groups=["Enemies"]]
+motion_mode = 1
 script = ExtResource("1_k6whu")
 interpolation = SubResource("Curve_8esgc")
 
@@ -417,12 +176,27 @@ disable_mode = 1
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_ntg0f")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.113234, 0, 0, 0, 0.113234, 0, 0, 0, 0.113234, 0, 0, 0)
-layers = 3
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ymkeq")
+}
 
-[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
-transform = Transform3D(8.83127, 0, 0, 0, 8.83127, 0, 0, 0, 8.83127, 0, 0.0416334, 0)
+[node name="AnimationPlayerSprite" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_cgli0")
+}
+autoplay = "animation"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qmnwd")
+disabled = true
+
+[node name="crash_sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_pjw75")
+volume_db = -23.051
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
 texture_filter = 0
 texture = ExtResource("2_s5c6x")
 hframes = 3
@@ -439,25 +213,5 @@ metadata/_aseprite_wizard_config_ = {
 "player": "AnimationPlayerSprite",
 "source": "res://ENEMIES/Drone.aseprite"
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ymkeq")
-}
-
-[node name="AnimationPlayerSprite" type="AnimationPlayer" parent="."]
-root_node = NodePath("../AnimationPlayer")
-autoplay = "animation"
-libraries = {
-"": SubResource("AnimationLibrary_cgli0")
-}
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_qmnwd")
-disabled = true
-
-[node name="crash_sound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_pjw75")
-volume_db = -23.051
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
