@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ayauyfimv0t"]
+[gd_scene load_steps=6 format=3 uid="uid://c6ayauyfimv0t"]
 
 [ext_resource type="Script" path="res://Scenes/LoseScene.gd" id="1_5odl1"]
 [ext_resource type="FontFile" uid="uid://dp2x8wc4lajvs" path="res://Fonts/PixeloidSansBold.ttf" id="2_e4u8r"]
+[ext_resource type="FontFile" uid="uid://bfy8w7ws7vpfq" path="res://Fonts/PixeloidSans.ttf" id="3_1m11b"]
 [ext_resource type="AudioStream" uid="uid://bwfs6raaiaspy" path="res://Audio/SFX/death.ogg" id="3_m8hiw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_em0wn"]
@@ -47,6 +48,7 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1m11b")
 text = ">Main Menu<"
 icon_alignment = 1
 
