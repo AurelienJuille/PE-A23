@@ -183,10 +183,10 @@ libraries = {
 
 [node name="AnimationPlayerSprite" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationPlayer")
+autoplay = "animation"
 libraries = {
 "": SubResource("AnimationLibrary_cgli0")
 }
-autoplay = "animation"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qmnwd")

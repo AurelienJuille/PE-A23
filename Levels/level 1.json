@@ -8,7 +8,7 @@
 				},
 				{
 					"type": "bonus",
-					"spawner": 1,
+					"spawner": 9,
 					"level": 3
 				}
 			]
@@ -18,7 +18,7 @@
 			"spawn": [
 				{
 					"type": "flying",
-					"spawner": 1
+					"spawner": 3
 				},
 			]
 		},
@@ -31,11 +31,11 @@
 				},
 				{
 					"type": "flying",
-					"spawner": 1
+					"spawner": 2
 				},
 				{
 					"type": "flying",
-					"spawner": 1
+					"spawner": 3
 				},
 			]
 		},
@@ -44,7 +44,7 @@
 			"spawn": [
 				{
 					"type": "flying",
-					"spawner": 1
+					"spawner": 7
 				},
 			]
 		},
@@ -53,7 +53,7 @@
 			"spawn": [
 				{
 					"type": "flying",
-					"spawner": 1
+					"spawner": 7
 				},
 			]
 		},
@@ -62,7 +62,7 @@
 			"spawn": [
 				{
 					"type": "flying",
-					"spawner": 1
+					"spawner": 7
 				},
 			]
 		},
@@ -71,7 +71,7 @@
 			"spawn": [
 				{
 					"type": "bonus",
-					"spawner": 1,
+					"spawner": 5,
 					"level": 1
 				}
 			]
@@ -85,13 +85,760 @@
 				},
 				{
 					"type": "bonus",
-					"spawner": 1,
+					"spawner": 4,
 					"level": 3
 				}
 			]
 		},
-	
 	"40":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"44":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"48":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"52":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"55":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"56":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"57":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 2
+				}
+			]
+		},
+	"58":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"59":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"60":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"62":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"64":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "flying",
+					"spawner": 2
+				},
+				{
+					"type": "flying",
+					"spawner": 3
+				},
+				{
+					"type": "flying",
+					"spawner": 4
+				},
+				{
+					"type": "flying",
+					"spawner": 5
+				},
+				{
+					"type": "bonus",
+					"spawner": 9,
+					"level": 3
+				}
+			]
+		},
+	"68":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 3
+				}
+			]
+		},
+	"70":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"74":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"76":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"80":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"82":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 9,
+					"level": 3
+				}
+			]
+		},
+	"88":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 3
+				},
+			]
+		},
+	"96":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "flying",
+					"spawner": 2
+				},
+				{
+					"type": "flying",
+					"spawner": 3
+				},
+			]
+		},
+	"100":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 7
+				},
+			]
+		},
+	"102":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 7
+				},
+			]
+		},
+	"104":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 7
+				},
+			]
+		},
+	"110":
+		{
+			"spawn": [
+				{
+					"type": "bonus",
+					"spawner": 5,
+					"level": 1
+				}
+			]
+		},
+	"116":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 3
+				}
+			]
+		},
+	"120":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"124":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"128":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"122":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"135":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"136":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"137":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 2
+				}
+			]
+		},
+	"138":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"139":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"140":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"142":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"144":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "flying",
+					"spawner": 2
+				},
+				{
+					"type": "flying",
+					"spawner": 3
+				},
+				{
+					"type": "flying",
+					"spawner": 4
+				},
+				{
+					"type": "flying",
+					"spawner": 5
+				},
+				{
+					"type": "flying",
+					"spawner": 6
+				},
+				{
+					"type": "bonus",
+					"spawner": 9,
+					"level": 3
+				}
+			]
+		},
+	"148":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 3
+				}
+			]
+		},
+	"150":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"154":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"156":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"152":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"156":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 9,
+					"level": 3
+				}
+			]
+		},
+	"158":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 3
+				},
+			]
+		},
+	"166":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "flying",
+					"spawner": 2
+				},
+				{
+					"type": "flying",
+					"spawner": 3
+				},
+			]
+		},
+	"160":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 7
+				},
+			]
+		},
+	"162":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 7
+				},
+			]
+		},
+	"164":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 7
+				},
+			]
+		},
+	"170":
+		{
+			"spawn": [
+				{
+					"type": "bonus",
+					"spawner": 5,
+					"level": 1
+				}
+			]
+		},
+	"176":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 3
+				}
+			]
+		},
+	"180":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"184":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"188":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"192":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"195":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"196":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"197":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 2
+				}
+			]
+		},
+	"200":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"204":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"208":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"212":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"216":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "flying",
+					"spawner": 2
+				},
+				{
+					"type": "flying",
+					"spawner": 3
+				},
+				{
+					"type": "flying",
+					"spawner": 4
+				},
+				{
+					"type": "flying",
+					"spawner": 5
+				},
+				{
+					"type": "flying",
+					"spawner": 6
+				},
+				{
+					"type": "bonus",
+					"spawner": 9,
+					"level": 3
+				}
+			]
+		},
+	"220":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				},
+				{
+					"type": "bonus",
+					"spawner": 4,
+					"level": 3
+				}
+			]
+		},
+	"224":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"226":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"230":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	"232":
+		{
+			"spawn": [
+				{
+					"type": "flying",
+					"spawner": 1
+				}
+			]
+		},
+	
+		
+	"292":
 		{
 			"end": "end"
 		}

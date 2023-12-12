@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bth4rmiyrhogj"]
+[gd_scene load_steps=5 format=3 uid="uid://bth4rmiyrhogj"]
 
 [ext_resource type="Script" path="res://Scenes/gametimer.gd" id="1_nu060"]
+[ext_resource type="FontFile" uid="uid://dp2x8wc4lajvs" path="res://Fonts/PixeloidSansBold.ttf" id="2_lxlo3"]
 
 [sub_resource type="Theme" id="Theme_al8h2"]
 default_font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_5u8eq"]
+font = ExtResource("2_lxlo3")
+font_size = 50
 
 [node name="GAMETIMER" type="Node"]
 script = ExtResource("1_nu060")
@@ -11,6 +16,13 @@ script = ExtResource("1_nu060")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 55.0
+grow_horizontal = 2
 theme = SubResource("Theme_al8h2")
+label_settings = SubResource("LabelSettings_5u8eq")
+horizontal_alignment = 1
