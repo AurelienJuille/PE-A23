@@ -11,6 +11,8 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click3.ogg")
+	$AudioStreamPlayer2D.play()
 	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
 	pass # Replace with function body.
 
