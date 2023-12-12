@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxiep8beh57kd"]
+[gd_scene load_steps=5 format=3 uid="uid://bxiep8beh57kd"]
 
 [ext_resource type="Script" path="res://Scenes/start_menu.gd" id="1_1eu1t"]
+[ext_resource type="FontFile" uid="uid://dp2x8wc4lajvs" path="res://Fonts/PixeloidSansBold.ttf" id="2_i77y0"]
+[ext_resource type="FontFile" uid="uid://bfy8w7ws7vpfq" path="res://Fonts/PixeloidSans.ttf" id="3_e3rgm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x04k8"]
+font = ExtResource("2_i77y0")
+font_size = 50
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -15,7 +21,7 @@ script = ExtResource("1_1eu1t")
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
-color = Color(0.196078, 0.356863, 0.701961, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -34,35 +40,66 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "REBEL GAME"
+label_settings = SubResource("LabelSettings_x04k8")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="PrevLevel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3rgm")
 text = "<"
+icon_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3rgm")
 text = "Level 1: City Landscapes"
+horizontal_alignment = 1
 
 [node name="NextLevel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3rgm")
 text = ">"
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3rgm")
 text = "Play"
 
 [node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3rgm")
 text = "Tutorial"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_e3rgm")
 text = "Quit"
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/PrevLevel" to="." method="on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/PrevLevel" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PrevLevel" to="." method="_on_prev_level_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/NextLevel" to="." method="on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/NextLevel" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Play" to="." method="on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Play" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Tutorial" to="." method="on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Quit" to="." method="on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

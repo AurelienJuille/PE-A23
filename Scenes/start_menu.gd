@@ -33,3 +33,15 @@ func _on_next_level_pressed():
 	
 func update_label():
 	$MarginContainer/VBoxContainer/HBoxContainer/LevelLabel.text = levelNames[index]
+
+
+func on_button_mouse_entered():
+	$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click1.ogg")
+	$AudioStreamPlayer2D.play()
+	pass # Replace with function body.
+
+
+func _on_button_mouse_exited():
+	$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click2.ogg")
+	$AudioStreamPlayer2D.play()
+	pass # Replace with function body.

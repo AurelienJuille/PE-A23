@@ -13,3 +13,14 @@ func _process(delta):
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
 	pass # Replace with function body.
+
+func on_button_mouse_entered():
+	$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click1.ogg")
+	$AudioStreamPlayer2D.play()
+	pass # Replace with function body.
+
+
+func _on_button_mouse_exited():
+	$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click2.ogg")
+	$AudioStreamPlayer2D.play()
+	pass # Replace with function body.
