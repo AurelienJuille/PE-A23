@@ -47,7 +47,6 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 					$ENEMIES.add_child(child)
 					var spawner_number = ennemy["spawner"]
 					child.global_position = $SPAWNERS.get_child(spawner_number - 1).global_position
-					print(child.global_position)
 					child.visible = true
 			
 			if info.has("frequency"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b4aj0ifktgyw0"]
+[gd_scene load_steps=40 format=3 uid="uid://b4aj0ifktgyw0"]
 
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_yyj0k"]
 [ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://ENEMIES/flying_enemy.tscn" id="2_g88fv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djdglvv63pfn2" path="res://Scenes/collectible.tscn" id="2_omo0w"]
 [ext_resource type="PackedScene" uid="uid://cdhmtya8qebk" path="res://Models/balcony.glb" id="3_sssdg"]
 [ext_resource type="PackedScene" uid="uid://by4ms2r8hjhmf" path="res://Models/short  pillar.glb" id="4_h1x7c"]
+[ext_resource type="PackedScene" uid="uid://d0rclp60hws5i" path="res://ENEMIES/Tank.tscn" id="5_fdohl"]
 [ext_resource type="PackedScene" uid="uid://dm6ejbyagutyl" path="res://Models/double pillar.glb" id="5_j85i2"]
 [ext_resource type="PackedScene" uid="uid://bm2k262okd2mb" path="res://Models/long pillar.glb" id="6_y6d2i"]
 [ext_resource type="PackedScene" uid="uid://can02ru4qu75w" path="res://Models/floor4.glb" id="7_2qfaj"]
@@ -36,7 +37,7 @@ dof_blur_near_distance = 1.48
 dof_blur_near_transition = -1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rn6st"]
-size = Vector3(1.3186, 0.0129537, 0.121565)
+size = Vector3(1.3186, 0.0172765, 0.121565)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gtxo6"]
 size = Vector3(1.7948, 0.0740249, 0.425)
@@ -119,6 +120,9 @@ far = 88.74
 
 [node name="ENEMIES" type="Node3D" parent="."]
 
+[node name="Tank" parent="ENEMIES" instance=ExtResource("5_fdohl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.632391, 0)
+
 [node name="SPAWNERS" type="Node3D" parent="."]
 
 [node name="1" type="Marker3D" parent="SPAWNERS"]
@@ -188,7 +192,7 @@ transform = Transform3D(1.98959, 0, 0, 0, 1.98959, 0, 0, 0, 2.07725, 0.141569, 0
 [node name="StaticBody3D" type="StaticBody3D" parent="ENVIRONMENT/Layout/balcony"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ENVIRONMENT/Layout/balcony/StaticBody3D"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.00198717, 0.0582809, 0.00125955)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.00198717, 0.0561195, 0.00125955)
 shape = SubResource("BoxShape3D_rn6st")
 
 [node name="Node" type="Node" parent="ENVIRONMENT/Layout"]
