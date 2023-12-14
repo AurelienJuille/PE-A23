@@ -27,10 +27,16 @@ var dash_cooldown_duration = .5
 var dash_cooldown = .0
 
 
-
 # ANIMATION VARIABLES
 @onready var animation_tree = $AnimationTree
 var STATE_MACHINE
+
+# INVINCIBILITY
+var invincible = false
+func toggle_invincibility():
+	if OS.is_debug_build():
+		invincible = not invincible
+		print("SET INVINCIBILITY TO : ", invincible)
 
 func _ready():
 	$Slash/Slash_Area.monitoring = false
@@ -40,6 +46,9 @@ func _ready():
 	get_parent().readJSON()
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("toggle_invincibility"):
+		toggle_invincibility()
+	
 	if not is_on_floor():
 		velocity.y -= grav * delta * (3 if velocity.y > max_fall_speed else 1)
 	if is_on_floor():
@@ -158,9 +167,8 @@ func handle_dash():
 
 
 func die():
-	#get_tree().call_deferred("change_scene_to_file", "res://Scenes/LoseScene.tscn")
-	#get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")
-	pass
+	if not invincible:
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/LoseScene.tscn")
 
 
 # SLASH HIT
