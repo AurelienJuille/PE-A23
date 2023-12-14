@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cea14f3nalktl"
-path="res://.godot/imported/unt3itled_Shop-0-ShopBuilding_1_Emission.png-4a0065f0465a4a28fc47f105e4624ce9.ctex"
+uid="uid://msl8io73gdkq"
+path="res://.godot/imported/poles small only.png-c2c41b1b8b8660a80fc68b33c96be367.ctex"
 metadata={
 "vram_texture": false
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://unt3itled_Shop-0-ShopBuilding_1_Emission.png"
-dest_files=["res://.godot/imported/unt3itled_Shop-0-ShopBuilding_1_Emission.png-4a0065f0465a4a28fc47f105e4624ce9.ctex"]
+source_file="res://Textures/poles small only.png"
+dest_files=["res://.godot/imported/poles small only.png-c2c41b1b8b8660a80fc68b33c96be367.ctex"]
 
 [params]
 

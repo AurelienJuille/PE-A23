@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpea515l76v4m"
-path="res://.godot/imported/unt3itled_Shop-0-ShopBuilding_1.png-8caacaa4ea0d2b98e9f982d031e509cd.ctex"
+uid="uid://cea14f3nalktl"
+path="res://.godot/imported/unt3itled_Shop-0-ShopBuilding_1_Emission.png-b1cde20600ff8d105086626a83bf1ed0.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://unt3itled_Shop-0-ShopBuilding_1.png"
-dest_files=["res://.godot/imported/unt3itled_Shop-0-ShopBuilding_1.png-8caacaa4ea0d2b98e9f982d031e509cd.ctex"]
+source_file="res://Textures/unt3itled_Shop-0-ShopBuilding_1_Emission.png"
+dest_files=["res://.godot/imported/unt3itled_Shop-0-ShopBuilding_1_Emission.png-b1cde20600ff8d105086626a83bf1ed0.ctex"]
 
 [params]
 
