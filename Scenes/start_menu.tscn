@@ -6,7 +6,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_x04k8"]
 font = ExtResource("2_i77y0")
-font_size = 50
+font_size = 42
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -42,7 +42,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "REBEL GAME"
+text = "GAME TITLE"
 label_settings = SubResource("LabelSettings_x04k8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]

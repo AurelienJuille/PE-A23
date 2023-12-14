@@ -190,7 +190,7 @@ func arrows_to_bonus():
 			min_dist_pos = bonus.global_position
 			
 	
-	if min_dist != PI * 1000:
+	if (min_dist != PI * 1000) and (min_dist > 0.8):
 		$ARROWS.visible = true
 		var bonus_dir = (min_dist_pos - global_position).normalized()
 		$ARROWS.rotation = Vector3.ZERO

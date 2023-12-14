@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvcf11w18yqq0"]
+[gd_scene load_steps=6 format=3 uid="uid://c6ayauyfimv0t"]
 
 [ext_resource type="Script" path="res://Scenes/LoseScene.gd" id="1_5odl1"]
 [ext_resource type="FontFile" uid="uid://dp2x8wc4lajvs" path="res://Fonts/PixeloidSansBold.ttf" id="2_e4u8r"]
