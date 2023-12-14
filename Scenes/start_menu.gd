@@ -33,17 +33,15 @@ func update_label():
 #func on_button_mouse_pressed():
 	#$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click3.ogg")
 	#$AudioStreamPlayer2D.play()
-	#await $AudioStreamPlayer2D.finished
 #
-#func on_button_mouse_entered():
-	#$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click1.ogg")
-	#$AudioStreamPlayer2D.play()
-	#await $AudioStreamPlayer2D.finished
-#
+func on_button_mouse_entered():
+	$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click1.ogg")
+	$AudioStreamPlayer2D.play()
+
+
 #func _on_button_mouse_exited():
 	#$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click2.ogg")
 	#$AudioStreamPlayer2D.play()
-	#await $AudioStreamPlayer2D.finished
 	
 	
 func click_sound():
