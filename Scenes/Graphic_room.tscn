@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cumoos2igrugl"]
+[gd_scene load_steps=54 format=3 uid="uid://cumoos2igrugl"]
 
 [ext_resource type="Texture2D" uid="uid://bixb8ec004278" path="res://Textures/albedo/Elec_pole2.png" id="1_85n4g"]
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_ycj8b"]
@@ -16,15 +16,18 @@
 [ext_resource type="Script" path="res://ENEMIES/flying_enemy.gd" id="16_nvjji"]
 [ext_resource type="Texture2D" uid="uid://bbenu154gcyfr" path="res://ENEMIES/Drone.png" id="17_06xjl"]
 [ext_resource type="Script" path="res://Scripts/Timeline Contol.gd" id="18_fcbba"]
-[ext_resource type="AudioStream" uid="uid://ctssuqhn81fd8" path="res://Audio/Music/onlymp3.to - Swan Bones thu-iqTwWaDvTHY-192k-1701046113.mp3" id="18_rwhv5"]
 [ext_resource type="AudioStream" uid="uid://boo2r8tx3v02h" path="res://Audio/Music/VEDH Percussion 026.wav" id="19_1db6h"]
+[ext_resource type="AudioStream" uid="uid://ctssuqhn81fd8" path="res://Audio/Music/SwanBones - Thu.mp3" id="19_ocutx"]
 [ext_resource type="AudioStream" uid="uid://cpmrs1d0cl17j" path="res://Audio/SFX/break_drone.mp3" id="19_pa666"]
 [ext_resource type="Script" path="res://Scripts/tick.gd" id="20_vxhpo"]
 [ext_resource type="PackedScene" uid="uid://bth4rmiyrhogj" path="res://Scenes/gametimer.tscn" id="21_s2icx"]
 [ext_resource type="PackedScene" uid="uid://djdglvv63pfn2" path="res://Scenes/collectible.tscn" id="22_raver"]
 [ext_resource type="Script" path="res://Scenes/COLLECTIBLES.gd" id="22_rv1cd"]
 [ext_resource type="Texture2D" uid="uid://bi0ffrfpq4i7b" path="res://Textures/tuto1.png" id="23_towtj"]
+[ext_resource type="Texture2D" uid="uid://bmy5mvhxmwd35" path="res://Textures/tuto6.png" id="24_xfqn4"]
+[ext_resource type="Texture2D" uid="uid://tw7h70a3ya3n" path="res://Textures/tuto4.png" id="25_hcuut"]
 [ext_resource type="Texture2D" uid="uid://d00gjkbyb65xs" path="res://Textures/tuto2.png" id="26_m72c7"]
+[ext_resource type="Texture2D" uid="uid://dceu2s1h7g75l" path="res://Textures/tuto5.png" id="26_o6h33"]
 [ext_resource type="Script" path="res://Scenes/quit_tuto.gd" id="27_df7jo"]
 [ext_resource type="Texture2D" uid="uid://b7cm0vdpb7gwj" path="res://Textures/tuto3.png" id="27_dojh5"]
 
@@ -534,7 +537,7 @@ bonus_scene = ExtResource("22_raver")
 flying_enemy_scene = ExtResource("15_v1xlu")
 
 [node name="PLAYER" parent="." instance=ExtResource("12_butpa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70556, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50556, 0, 0)
 
 [node name="ENVIRONMENT" type="Node3D" parent="."]
 
@@ -563,12 +566,12 @@ mesh = ExtResource("4_uv33r")
 skeleton = NodePath("../../..")
 
 [node name="Shop-2-phoneCabin" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
-transform = Transform3D(0.163928, 0.00147287, -0.000750603, -0.00147389, 0.16393, -0.000219559, 0.000748598, 0.0002263, 0.163935, 1.64712, 0.463566, -0.452089)
+transform = Transform3D(0.163928, 0.00147287, -0.000750603, -0.00147389, 0.16393, -0.000219559, 0.000748598, 0.0002263, 0.163935, 4.59782, 0.437036, -0.438614)
 mesh = ExtResource("5_y6f00")
 skeleton = NodePath("../../..")
 
 [node name="Shop-1-shopBuilding2" type="MeshInstance3D" parent="ENVIRONMENT/Foreground"]
-transform = Transform3D(-0.219038, 0, -1.91489e-08, 0, 0.219038, 0, 1.91489e-08, 0, -0.219038, -4.06633, 0.753629, -0.642434)
+transform = Transform3D(-0.219038, 0, -1.91489e-08, 0, 0.219038, 0, 1.91489e-08, 0, -0.219038, -7.3519, 0.753629, -0.642434)
 mesh = ExtResource("6_hdqey")
 skeleton = NodePath("../../..")
 
@@ -731,42 +734,66 @@ omni_attenuation = 3.86374
 environment = SubResource("Environment_wjck8")
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_rwhv5")
+stream = ExtResource("19_ocutx")
+volume_db = -16.0
 script = ExtResource("18_fcbba")
+bpm = 50.0
 
 [node name="StartTimer" type="Timer" parent="MusicControl"]
 
 [node name="Test sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_1db6h")
-volume_db = -27.961
+volume_db = -44.826
 script = ExtResource("20_vxhpo")
 
 [node name="GAMETIMER" parent="." groups=["Enemies"] instance=ExtResource("21_s2icx")]
+start_beats_left = 100
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Bonus gives time" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27828, 0.76574, 0)
+pixel_size = 0.005
+texture = ExtResource("24_xfqn4")
+
+[node name="Space to jump" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74129, 0.58287, 0)
 pixel_size = 0.005
 texture = ExtResource("23_towtj")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
+[node name="Survive to win" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63914, 0.96574, 0)
+pixel_size = 0.005
+texture = ExtResource("26_o6h33")
+
+[node name="Click to attack" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0195693, 0.58287, 0)
 pixel_size = 0.005
 texture = ExtResource("26_m72c7")
+
+[node name="AD to move" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46086, 0.56574, 0)
+offset = Vector2(0, 5.45)
+pixel_size = 0.005
+texture_filter = 0
+texture = ExtResource("25_hcuut")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61625, 0, 0)
 script = ExtResource("27_df7jo")
 
 [node name="Sprite3D" type="Sprite3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540948, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.540948, 0)
 pixel_size = 0.005
 texture = ExtResource("27_dojh5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189692, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.189692, 0)
 shape = SubResource("BoxShape3D_7k8g2")
 
 [node name="BONUS" type="Node3D" parent="."]
+
+[node name="Collectible" parent="." instance=ExtResource("22_raver")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 0.3, 0)
+beat_bonus = 20
 
 [connection signal="body_entered" from="ENEMIES/Flying Enemy/Area3D" to="ENEMIES/Flying Enemy" method="_on_area_3d_body_entered"]
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]

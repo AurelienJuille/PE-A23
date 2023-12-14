@@ -6,7 +6,9 @@ func _ready():
 	$MarginContainer/VBoxContainer/Play.grab_focus()
 
 func _on_play_pressed():
+	GLOBAL.CURRENTLEVEL = level[index]
 	await click_sound()
+	await $AudioStreamPlayer2D.finished
 	get_tree().change_scene_to_file(level[index])
 
 func _on_quit_pressed():
@@ -14,8 +16,11 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_tutorial_pressed():
+	GLOBAL.CURRENTLEVEL = "res://Scenes/Graphic_room.tscn"
+	print(GLOBAL.CURRENTLEVEL)
 	await click_sound()
-	get_tree().change_scene_to_file("res://Scenes/Graphic_room.tscn")
+	await $AudioStreamPlayer2D.finished
+	get_tree().change_scene_to_file(GLOBAL.CURRENTLEVEL)
 
 func _on_prev_level_pressed():
 	click_sound()
@@ -40,8 +45,8 @@ func on_button_mouse_entered():
 
 
 #func _on_button_mouse_exited():
-	#$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click2.ogg")
-	#$AudioStreamPlayer2D.play()
+#	$AudioStreamPlayer2D.stream = load("res://Audio/SFX/click2.ogg")
+#	$AudioStreamPlayer2D.play()
 	
 	
 func click_sound():
