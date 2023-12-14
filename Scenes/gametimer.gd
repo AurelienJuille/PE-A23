@@ -25,7 +25,6 @@ func _on_music_control_current_sub_beat_signal():
 			label_scale = 1.1
 			$CanvasLayer/Label.modulate = Color.WHITE
 			
-		print(label_scale)
 		$CanvasLayer/Label.scale = Vector2(label_scale, label_scale)
 		var tween = get_tree().create_tween()
 		tween.tween_property($CanvasLayer/Label, "scale", Vector2(1,1), .05)

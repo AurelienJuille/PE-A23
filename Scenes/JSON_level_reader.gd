@@ -40,11 +40,12 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 					var child = child_scene.instantiate()
 					if t != "bonus":
 						enemy_dict[ennemy["type"]].append(child)
+						$ENEMIES.add_child(child)
 					else:
 						var l = str(ennemy["level"])
 						child.beat_bonus = child.BONUS["level_" + l]
+						$BONUS.add_child(child)
 					child.visible = false
-					$ENEMIES.add_child(child)
 					var spawner_number = ennemy["spawner"]
 					child.global_position = $SPAWNERS.get_child(spawner_number - 1).global_position
 					child.visible = true

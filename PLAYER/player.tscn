@@ -492,8 +492,10 @@ size = Vector3(0.455355, 0.3, 0.151)
 [node name="PLAYER" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_0jlmp")
 
-[node name="arrow" parent="." instance=ExtResource("2_x0wsb")]
-transform = Transform3D(-1.28843e-08, -2.52878e-16, 0.294759, 0.294759, -7.45058e-09, 1.28843e-08, 7.45058e-09, 0.294759, 4.44089e-16, 1.50799, 0, 0)
+[node name="ARROWS" type="Node3D" parent="."]
+
+[node name="arrow" parent="ARROWS" instance=ExtResource("2_x0wsb")]
+transform = Transform3D(-1.28843e-08, 1.28843e-08, 0.294759, 0.294759, -1.28843e-08, 1.28843e-08, 1.28843e-08, 0.294759, -1.28843e-08, 0.223699, 0, 0)
 metadata/arrow = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -502,9 +504,11 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g8eca")
+}
 tree_root = SubResource("AnimationNodeStateMachine_65sxd")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -556,6 +560,8 @@ near = 0.121
 
 [node name="Slash" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Slash_Sprite" type="Sprite3D" parent="Slash"]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 1.86265e-09, 0, 0, 0.08, 0.0385057, 0.0250537, 0.050032)

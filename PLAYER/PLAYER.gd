@@ -62,6 +62,7 @@ func _physics_process(delta):
 	velocity.z = 0
 	move_and_slide()
 	animation()
+	arrows_to_bonus()
 
 
 func animation():
@@ -172,5 +173,33 @@ func slash_hit(_area):
 	handle_dash()
 	
 
-
-
+func arrows_to_bonus():
+	var min_dist = PI * 1000
+	var min_dist_pos = Vector3.ZERO
+	for bonus in GLOBAL.SPAWNER.get_node("BONUS").get_children():
+		if bonus.visible and (bonus.global_position - global_position).length() < min_dist:
+			min_dist = (bonus.global_position - global_position).length()
+			min_dist_pos = bonus.global_position
+			
+	
+	if min_dist != PI * 1000:
+		$ARROWS.visible = true
+		var bonus_dir = (min_dist_pos - global_position).normalized()
+		$ARROWS.rotation = Vector3.ZERO
+		var angle = bonus_dir.angle_to(Vector3(1,0,0))
+		if bonus_dir.y <= 0:
+			angle = 2 * PI - angle
+		$ARROWS.rotate(Vector3(0,0,1), angle)
+	else:
+		$ARROWS.visible = false
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
