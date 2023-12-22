@@ -495,7 +495,7 @@ script = ExtResource("1_0jlmp")
 [node name="ARROWS" type="Node3D" parent="."]
 
 [node name="arrow" parent="ARROWS" instance=ExtResource("2_x0wsb")]
-transform = Transform3D(-1.28843e-08, 1.28843e-08, 0.294759, 0.294759, -1.28843e-08, 1.28843e-08, 1.28843e-08, 0.294759, -1.28843e-08, 0.723699, 0, 0)
+transform = Transform3D(-1.28843e-08, 1.28843e-08, 0.294759, 0.294759, -1.28843e-08, 1.28843e-08, 1.28843e-08, 0.294759, -1.28843e-08, 0.223699, 0, 0)
 metadata/arrow = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
