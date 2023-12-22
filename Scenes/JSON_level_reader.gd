@@ -31,6 +31,7 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 			last_beat_executed = beat
 			var info = content[beat]
 			if info.has("end"):
+				print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
 				get_tree().change_scene_to_file("res://Scenes/WinScene.tscn")
 			if info.has("spawn"):
 				for ennemy in info["spawn"]:

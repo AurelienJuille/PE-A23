@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bjsieiy57uysq" path="res://Models/floor1.glb" id="9_e42xt"]
 [ext_resource type="Texture2D" uid="uid://bnmwpmwyc5olf" path="res://Textures/levels/level_1.png" id="10_ed258"]
 [ext_resource type="Texture2D" uid="uid://shndpb4etpl8" path="res://Textures/levels/floor.png" id="11_v7v1r"]
-[ext_resource type="Texture2D" uid="uid://msl8io73gdkq" path="res://poles small only.png" id="13_eut6y"]
+[ext_resource type="Texture2D" uid="uid://msl8io73gdkq" path="res://Textures/poles small only.png" id="13_eut6y"]
 [ext_resource type="PackedScene" uid="uid://bi1ltybaqms5t" path="res://Models/electric pole.glb" id="14_0x6bp"]
 [ext_resource type="PackedScene" uid="uid://ypwssgaqfvnt" path="res://Models/pole.glb" id="15_iuamy"]
 [ext_resource type="ArrayMesh" uid="uid://broteypg12ew8" path="res://Textures/bump/Shop-3-Car.obj" id="15_qvw6p"]

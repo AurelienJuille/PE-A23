@@ -1,20 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmjnumc4s1odt"]
+[gd_scene load_steps=6 format=3 uid="uid://dmjnumc4s1odt"]
 
-[ext_resource type="Script" path="res://Scenes/LoseScene.gd" id="1_1462u"]
+[ext_resource type="Script" path="res://Scenes/WinScene.gd" id="1_lni7q"]
 [ext_resource type="FontFile" uid="uid://dp2x8wc4lajvs" path="res://Fonts/PixeloidSansBold.ttf" id="2_snaga"]
 [ext_resource type="FontFile" uid="uid://bfy8w7ws7vpfq" path="res://Fonts/PixeloidSans.ttf" id="3_2aiab"]
+[ext_resource type="AudioStream" uid="uid://huopgdk4hekw" path="res://Audio/SFX/tada.mp3" id="4_inj0j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_em0wn"]
 font = ExtResource("2_snaga")
 
-[node name="LoseScreen" type="Control"]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1462u")
+script = ExtResource("1_lni7q")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
@@ -45,15 +46,14 @@ text = "YOU WIN!!!"
 label_settings = SubResource("LabelSettings_em0wn")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer"]
+texture_filter = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_2aiab")
-text = ">Main Menu<"
+theme_override_font_sizes/font_size = 13
+text = "Main Menu"
 icon_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_inj0j")
 autoplay = true
-
-[connection signal="mouse_entered" from="ColorRect2/MarginContainer/VBoxContainer/Button" to="." method="on_button_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect2/MarginContainer/VBoxContainer/Button" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="ColorRect2/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
