@@ -1,3 +1,8 @@
+"""
+SCRIPT DE L'OBJET FLYING ENEMY
+C'est le drone qui se rue vers le joueur en rythme
+"""
+
 extends CharacterBody3D
 
 @export var interpolation : Curve
@@ -26,7 +31,8 @@ var started = false
 
 
 func _process(_delta):
-	if (not dead and 
+	if (visible and 
+	not dead and
 	GLOBAL.MUSIC_CONTROL.songPositionInBeats != last_executed_beat and
 	GLOBAL.MUSIC_CONTROL.songPositionInBeats % frequency == pre_anim_beats):
 		last_executed_beat = GLOBAL.MUSIC_CONTROL.songPositionInBeats
@@ -34,7 +40,7 @@ func _process(_delta):
 
 
 func _physics_process(delta):
-	if started:
+	if visible and started:
 		if not dead:
 			time_elapsed += delta
 			interpolationSlider = time_elapsed / move_duration / 2
@@ -54,15 +60,16 @@ func _physics_process(delta):
 
 
 func attack() -> void:
-	started = true
-	move_duration = 60.0/GLOBAL.MUSIC_CONTROL.bpm
-	$AnimationPlayer.speed_scale =  1.0/move_duration
-	$AnimationPlayer.play("charge")
-	
-	time_elapsed = 0
-	start_pos = global_position
-	direction = (GLOBAL.PLAYER.global_position + Vector3(0,0.2,0) - self.global_position).normalized()
-	destination = start_pos + direction * DASH_LENGTH
+	if visible:
+		started = true
+		move_duration = 60.0/GLOBAL.MUSIC_CONTROL.bpm
+		$AnimationPlayer.speed_scale =  1.0/move_duration
+		$AnimationPlayer.play("charge")
+		
+		time_elapsed = 0
+		start_pos = global_position
+		direction = (GLOBAL.PLAYER.global_position + Vector3(0,0.2,0) - self.global_position).normalized()
+		destination = start_pos + direction * DASH_LENGTH
 
 
 func _on_area_3d_body_entered(body):

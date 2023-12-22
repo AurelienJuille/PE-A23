@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bryi3hj0lq1ru"
+path="res://.godot/imported/warning.aseprite-6ff2f8202ac896c8336ace28e52cc880.res"
+
+[deps]
+
+source_file="res://Textures/warning.aseprite"
+dest_files=["res://.godot/imported/warning.aseprite-6ff2f8202ac896c8336ace28e52cc880.res"]
+
+[params]
+

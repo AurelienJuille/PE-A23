@@ -19,11 +19,14 @@ var closest = 0
 var timeOffBeat = 0.0
 var lastReportedSubBeat = 0
 
+var full_duration: float
+
 signal currentSubBeatSignal
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	full_duration = stream.get_length()
 	secondsPerBeat = 60/bpm
 	GLOBAL.MUSIC_CONTROL = self
 	get_tree().call_group("Enemies", "init")
@@ -87,3 +90,7 @@ func _on_start_timer_timeout():
 		$StartTimer.stop()
 		
 	_report_beat()
+
+
+func _on_finished():
+	get_tree().change_scene_to_file("res://Scenes/WinScene.tscn")

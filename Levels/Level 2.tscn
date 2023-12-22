@@ -942,4 +942,5 @@ mesh = SubResource("ArrayMesh_1qu6r")
 skeleton = NodePath("")
 
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
+[connection signal="finished" from="MusicControl" to="MusicControl" method="_on_finished"]
 [connection signal="timeout" from="MusicControl/Timer" to="MusicControl" method="_on_start_timer_timeout"]

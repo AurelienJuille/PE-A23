@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bth4rmiyrhogj"]
+[gd_scene load_steps=6 format=3 uid="uid://bth4rmiyrhogj"]
 
 [ext_resource type="Script" path="res://Scenes/gametimer.gd" id="1_nu060"]
 [ext_resource type="FontFile" uid="uid://dp2x8wc4lajvs" path="res://Fonts/PixeloidSansBold.ttf" id="2_lxlo3"]
@@ -9,6 +9,8 @@ default_font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_5u8eq"]
 font = ExtResource("2_lxlo3")
 font_size = 50
+
+[sub_resource type="Theme" id="Theme_4wp7i"]
 
 [node name="GAMETIMER" type="Node"]
 script = ExtResource("1_nu060")
@@ -27,3 +29,11 @@ pivot_offset = Vector2(25.345, 12.12)
 theme = SubResource("Theme_al8h2")
 label_settings = SubResource("LabelSettings_5u8eq")
 horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(1, 0, 0, 1)
+offset_right = 480.0
+offset_bottom = 4.0
+theme = SubResource("Theme_4wp7i")
+value = 50.0
+show_percentage = false

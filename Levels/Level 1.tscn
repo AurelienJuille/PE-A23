@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b4aj0ifktgyw0"]
+[gd_scene load_steps=41 format=3 uid="uid://b4aj0ifktgyw0"]
 
 [ext_resource type="Script" path="res://Scenes/JSON_level_reader.gd" id="1_yyj0k"]
 [ext_resource type="PackedScene" uid="uid://c13gmu48icrph" path="res://ENEMIES/flying_enemy.tscn" id="2_g88fv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://by4ms2r8hjhmf" path="res://Models/short  pillar.glb" id="4_h1x7c"]
 [ext_resource type="PackedScene" uid="uid://d0rclp60hws5i" path="res://ENEMIES/Tank.tscn" id="5_fdohl"]
 [ext_resource type="PackedScene" uid="uid://dm6ejbyagutyl" path="res://Models/double pillar.glb" id="5_j85i2"]
+[ext_resource type="Script" path="res://Levels/SPAWNERS.gd" id="6_dtocq"]
 [ext_resource type="PackedScene" uid="uid://bm2k262okd2mb" path="res://Models/long pillar.glb" id="6_y6d2i"]
 [ext_resource type="PackedScene" uid="uid://can02ru4qu75w" path="res://Models/floor4.glb" id="7_2qfaj"]
 [ext_resource type="PackedScene" uid="uid://badvtv4ykkrpy" path="res://Models/floor2.glb" id="8_6002k"]
@@ -126,6 +127,7 @@ far = 88.74
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590574, 0)
 
 [node name="SPAWNERS" type="Node3D" parent="."]
+script = ExtResource("6_dtocq")
 
 [node name="1" type="Marker3D" parent="SPAWNERS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.588791, 1.17828, 0)
@@ -703,7 +705,7 @@ omni_attenuation = 3.86375
 
 [node name="MusicControl" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_dk6gj")
-volume_db = -20.613
+volume_db = -10.0
 script = ExtResource("17_wfxvq")
 bpm = 160.0
 
@@ -720,4 +722,5 @@ environment = SubResource("Environment_ru4r5")
 [node name="GAMETIMER" parent="." groups=["Enemies"] instance=ExtResource("21_oomdy")]
 
 [connection signal="currentSubBeatSignal" from="MusicControl" to="Test sound" method="_on_music_control_current_sub_beat_signal"]
+[connection signal="finished" from="MusicControl" to="MusicControl" method="_on_finished"]
 [connection signal="timeout" from="MusicControl/Timer" to="MusicControl" method="_on_start_timer_timeout"]

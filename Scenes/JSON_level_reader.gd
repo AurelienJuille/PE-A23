@@ -31,7 +31,7 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 			last_beat_executed = beat
 			var info = content[beat]
 			if info.has("end"):
-				print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+				print("ok")
 				get_tree().change_scene_to_file("res://Scenes/WinScene.tscn")
 			if info.has("spawn"):
 				for ennemy in info["spawn"]:
@@ -48,8 +48,9 @@ func _on_music_control_current_sub_beat_signal() -> bool:
 						$BONUS.add_child(child)
 					child.visible = false
 					var spawner_number = ennemy["spawner"]
+					$SPAWNERS.spawn(child, spawner_number, t == "bonus")
 					child.global_position = $SPAWNERS.get_child(spawner_number - 1).global_position
-					child.visible = true
+					#child.visible = true
 			
 			if info.has("frequency"):
 				for new_frequency in info["frequency"]:

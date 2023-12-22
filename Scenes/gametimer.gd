@@ -16,6 +16,8 @@ func init():
 
 
 func _on_music_control_current_sub_beat_signal():
+	$CanvasLayer/ProgressBar.value = 100 * GLOBAL.MUSIC_CONTROL.get_playback_position() / GLOBAL.MUSIC_CONTROL.full_duration
+
 	if GLOBAL.MUSIC_CONTROL.songPositionInBeats != current_beat:
 		var label_scale: float
 		if beats_left - 1 < 10:
