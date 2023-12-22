@@ -1,3 +1,8 @@
+"""
+SCRIPT DE L'OBJET JOUEUR
+C'est le personnage controlé grâce au clavier et à la souris
+"""
+
 extends CharacterBody3D
 
 # JUMP VARIABLES
@@ -9,6 +14,8 @@ var grav : float
 var jump_strength : float
 
 # SET PHYSICS VARIABLES FROM PARAMETERS
+# Cette fonction permet d'initialiser les variables "grav" et "jump_strength" de sorte que 
+# le saut du joueur atteigne la hauteur "jump_height" en "jump_up_duration" secondes
 func set_variables() -> void:
 	grav = (2 * jump_height) / (jump_up_duration * jump_up_duration)
 	jump_strength = (2 * jump_height) / jump_up_duration
@@ -20,6 +27,7 @@ func set_variables() -> void:
 @export var time_to_stop := .1
 var is_jumping : bool
 
+# DASH VARIABLES (variables associées à l'action de dash, quand on fait un click gauche)
 var dash_force = 11.0
 var dash_timer_duration = .2
 var dash_timer = .0
@@ -38,24 +46,34 @@ func toggle_invincibility():
 		invincible = not invincible
 		print("SET INVINCIBILITY TO : ", invincible)
 
+
+# En godot, la fonction _ready() est appelée une fois lorsque la scène est instanciée. On s'en sert pour initialiser le comportement d'une scène
 func _ready():
 	$Slash/Slash_Area.monitoring = false
 	set_variables()
 	GLOBAL.PLAYER = self
 	STATE_MACHINE = animation_tree.get("parameters/playback")
+	# Une fois que le personnage jouable est instancié, il lance le niveau en appelant sa fonction readJson()
 	get_parent().readJSON()
 
+
+# En godot, la fonction _physics_process(delta) est appelée à chaque frame du moteur physique du jeu. 
+# L'argument delta représente le temps écoulé depuis le dernier appel de _physics_process() en secondes.
+# On se sert de cette fonction pour coder le comportement du personnage jouable
 func _physics_process(delta):
+	# Permet de rendre le personnage invincible pour débuger les niveaux. Cette fonctionnalité est retirée dans le build final
 	if Input.is_action_just_pressed("toggle_invincibility"):
 		toggle_invincibility()
 	
+	# is_on_floor() retourne vrai lorsque le joueur est en collision avec un objet physique en dessous de lui (le sol)
 	if not is_on_floor():
+		# Le vecteur tridimensionnel velocity correspond à la vitesse du joueur
 		velocity.y -= grav * delta * (3 if velocity.y > max_fall_speed else 1)
 	if is_on_floor():
 		velocity.y = .0
 	
 	
-	# MOVEMENT
+	# MOVEMENT DU JOUEUR
 	handle_dash()
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
@@ -74,6 +92,7 @@ func _physics_process(delta):
 	arrows_to_bonus()
 
 
+# Cette fonction gère l'animation du dessin du personnage en fonction de ses mouvements
 func animation():
 	if velocity.x != 0:
 		$Sprite3D.scale.x = sign(velocity.x)
@@ -95,6 +114,8 @@ func animation():
 			STATE_MACHINE.travel("Jump_down")
 
 
+
+# Cette fonction gère les sauts du joueur
 var was_on_floor = true # Utile pour le coyote time
 func handle_jump():
 	# Press Space Buffer
@@ -117,6 +138,7 @@ func handle_jump():
 		is_jumping = false
 
 
+# Cette fonction gère les déplacements au sol du joueur
 func handle_run(delta):
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -137,6 +159,7 @@ func handle_run(delta):
 	velocity.x = move_toward(velocity.x, direction.x * max_speed, weight*3)
 
 
+# Cette fonction gère les dash du joueur (attaque lors d'un click de souris)
 var dash_dir
 func handle_dash():
 	if dash_cooldown <= 0:
@@ -166,21 +189,20 @@ func handle_dash():
 		$Slash/Slash_Area.monitoring = false
 
 
+# Lorsque le joueur est touché par un enemi, renvoie vers l'écran de game over
 func die():
 	if not invincible:
 		get_tree().call_deferred("change_scene_to_file", "res://Scenes/LoseScene.tscn")
 
 
 # SLASH HIT
+# Lorsque la hitbox de l'épée du joueur entre en collision avec un ennemi, on appelle la fonction get_hit() de ce dernier
 func _on_slash_area_area_entered(area):
 	if area.get_parent().is_in_group("Enemies") and area.get_parent().has_method("get_hit"):
 		area.get_parent().get_hit()
 
 
-func slash_hit(_area):
-	handle_dash()
-	
-
+# Cette fonction dirige la flèche autour du personnage vers le bonus le plus proche, ou la cache lorsqu'aucun bonus n'est disponible
 func arrows_to_bonus():
 	var min_dist = PI * 1000
 	var min_dist_pos = Vector3.ZERO
